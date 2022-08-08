@@ -1,0 +1,905 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
+  link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+  style.
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    body {
+    font-family: 'Roboto', sans-serif;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    i {
+    margin-right: 10px;
+    }
+    /*----------multi-level-accordian-menu------------*/
+    .navbar-logo {
+    padding: 15px;
+    color: #fff;
+    }
+    .navbar-mainbg {
+    background-color: #b9a754;
+    padding: 0px;
+    }
+    #navbarSupportedContent {
+    overflow: hidden;
+    position: relative;
+    }
+    #navbarSupportedContent ul {
+    padding: 0px;
+    margin: 0px;
+    }
+    #navbarSupportedContent ul li a i {
+    margin-right: 10px;
+    }
+    #navbarSupportedContent li {
+    list-style-type: none;
+    float: left;
+    }
+    #navbarSupportedContent ul li a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    }
+    #navbarSupportedContent>ul>li.active>a {
+    color: #b9a754;
+    background-color: transparent;
+    transition: all 0.7s;
+    }
+    #navbarSupportedContent a:not(:only-child):after {
+    content: "\f105";
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    transition: 0.5s;
+    }
+    #navbarSupportedContent .active>a:not(:only-child):after {
+    transform: rotate(90deg);
+    }
+    .hori-selector {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 10px;
+    }
+    .hori-selector .right,
+    .hori-selector .left {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    bottom: 10px;
+    }
+    .hori-selector .right {
+    right: -25px;
+    }
+    .hori-selector .left {
+    left: -25px;
+    }
+    .hori-selector .right:before,
+    .hori-selector .left:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #b9a754;
+    }
+    .hori-selector .right:before {
+    bottom: 0;
+    right: -25px;
+    }
+    .hori-selector .left:before {
+    bottom: 0;
+    left: -25px;
+    }
+    @media (max-width: 991px) {
+    #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+    }
+    .hori-selector {
+    margin-top: 0px;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    }
+    .hori-selector .left,
+    .hori-selector .right {
+    right: 10px;
+    }
+    .hori-selector .left {
+    top: -25px;
+    left: auto;
+    }
+    .hori-selector .right {
+    bottom: -25px;
+    }
+    .hori-selector .left:before {
+    left: -25px;
+    top: -25px;
+    }
+    .hori-selector .right:before {
+    bottom: -25px;
+    left: -25px;
+    }
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft10 {
+    font-size: 33px;
+    font-family: Times;
+    }
+    .ft11 {
+    font-size: 21px;
+    font-family: Times;
+    color: #fff;
+    }
+    .ft12 {
+    font-size: 14px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft13 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft14 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft15 {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft16 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #050a33;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft20 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft21 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft22 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft23 {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft24 {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft25 {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft26 {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft30 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft31 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft32 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft33 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft34 {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft40 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft41 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft42 {
+    font-size: 14px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft43 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft44 {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft45 {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style.
+    /* Reset */
+    @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+    /* Main Styles */
+    .button {
+    display: block;
+    background-color: #c0392b;
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    }
+    .button span,
+    .button .icon {
+    display: block;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    }
+    .button span {
+    width: 72%;
+    line-height: inherit;
+    font-size: 22px;
+    text-transform: uppercase;
+    left: 0;
+    -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    }
+    .button span:after {
+    content: '';
+    background-color: #a53125;
+    width: 2px;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    right: -1px;
+    }
+    .button .icon {
+    width: 28%;
+    right: 0;
+    -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+    }
+    .button .icon .fa {
+    font-size: 30px;
+    vertical-align: middle;
+    -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+    transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+    }
+    .button .icon .fa-remove {
+    height: 36px;
+    }
+    .button .icon .fa-check {
+    display: none;
+    }
+    .button.success span,
+    .button:hover span {
+    left: -72%;
+    opacity: 0;
+    }
+    .button.success .icon,
+    .button:hover .icon {
+    width: 100%;
+    }
+    .button.success .icon .fa,
+    .button:hover .icon .fa {
+    font-size: 45px;
+    }
+    .button.success {
+    background-color: #27ae60;
+    }
+    .button.success .icon .fa-remove {
+    display: none;
+    }
+    .button.success .icon .fa-check {
+    display: inline-block;
+    }
+    .button:hover {
+    opacity: .9;
+    }
+    .button:hover .icon .fa-remove {
+    height: 46px;
+    }
+    .button:active {
+    opacity: 1;
+    }
+
+  style.
+   html,
+   body {
+   height: 100%;
+   }
+   .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      }
+   .buttn {
+     min-width: 300px;
+     min-height: 60px;
+     font-family: 'Nunito', sans-serif;
+     font-size: 22px;
+     text-transform: uppercase;
+     letter-spacing: 1.3px;
+     font-weight: 700;
+     color: #313133;
+     background: #4FD1C5;
+     background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+     border: none;
+     border-radius: 1000px;
+     box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+     transition: all 0.3s ease-in-out 0s;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     padding: 10px;
+       }
+   button::before {
+      content: '';
+      border-radius: 1000px;
+      min-width: calc(300px + 12px);
+      min-height: calc(60px + 12px);
+      border: 6px solid #00FFCB;
+      box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all .3s ease-in-out 0s;
+          }
+   .buttn:hover,
+   .buttn:focus {
+     color: #313133;
+     transform: translateY(-6px);
+     }
+    button:hover::before,
+    button:focus::before {
+      opacity: 1;
+       }
+   button::after {
+     content: '';
+     width: 30px;
+     height: 30px;
+     border-radius: 100%;
+     border: 6px solid #00FFCB;
+     position: absolute;
+     z-index: -1;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     animation: ring 1.5s infinite;
+      }
+   button:hover::after,
+   button:focus::after {
+     animation: none;
+     display: none;
+     }
+   @keyframes ring {
+   0% {
+     width: 30px;
+     height: 30px;
+     opacity: 1;
+     }
+   100% {
+     width: 300px;
+     height: 300px;
+     opacity: 0;
+    }
+    }  
+nav.navbar.navbar-expand-lg.navbar-mainbg
+  a.navbar-brand.navbar-logo(href='#') BlockCenter
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    i.fas.fa-bars.text-white
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      .hori-selector
+        .left
+        .right
+      li.nav-item
+        a.nav-link(href='home')
+          i.fas.fa-tachometer-alt
+            svg.bi.bi-file-person(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z')
+              path(fill-rule='evenodd' d='M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+          | Identification
+      li.nav-item
+        a.nav-link(href='id')
+          i.far.fa-address-book
+            svg.bi.bi-cash(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z')
+              path(d='M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z')
+          | Money
+      li.nav-item
+        a.nav-link(href='estate')
+          i.far.fa-clone
+            svg.bi.bi-house-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+              path(fill-rule='evenodd' d='M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z')
+          | Real Estates
+      li.nav-item.active
+        a.nav-link(href='contract')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Contracts
+
+      li.nav-item
+        a.nav-link(href='government')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Governmental services      
+     
+      li.nav-item
+        a.nav-link(href='car')
+          i.fa.fa-car
+          | My Car
+mixin content(lessorphonetenantaddress,releaseDate,payDate,endDate,pay,tenantname,lessorname,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address,releasedate,ownerid,tenant,googleaddress,price,last)   
+ #page1-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4m9Ut7L7c2vhaOwGslzwmLKoP4SdBDDfZP3EjHbyrBbbJmQ8dagcjFkLLLUwWAk0gNWm2go--MgCpd25vW-jIk60D9xesoIY_XxMGgrxDyiHRMx68Q2abKFxdVqa1N3utcHq5hlDpybQc_C7n6f1qvrUaVu2OLTgv1cJQv7abGCx4YpMO38TK1fuBiNbNjCUzj?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft10(style='position:absolute;top:38px;left:145px;white-space:nowrap')
+    b House&nbsp;Rental&nbsp;
+  p.ft10(style='position:absolute;top:81px;left:94px;white-space:nowrap')
+    b Agreement&nbsp;Form
+  p.ft11(style='position:absolute;top:249px;left:458px;white-space:nowrap') Landlord&nbsp;Information
+  p.ft11(style='position:absolute;top:249px;left:65px;white-space:nowrap') Tenant&nbsp;Information
+  p.ft12(style='position:absolute;top:308px;left:458px;white-space:nowrap')
+    b Name
+  p.ft13(style='position:absolute;top:333px;left:458px;white-space:nowrap')=lessorname
+  p.ft12(style='position:absolute;top:377px;left:458px;white-space:nowrap')
+    b Email
+  p.ft13(style='position:absolute;top:403px;left:458px;white-space:nowrap') curly@example.com
+  p.ft12(style='position:absolute;top:447px;left:458px;white-space:nowrap')
+    b Phone&nbsp;Number
+  p.ft13(style='position:absolute;top:473px;left:458px;white-space:nowrap')=lessorphone
+    |
+  p.ft12(style='position:absolute;top:509px;left:458px;white-space:nowrap')
+    b Number&nbsp;of&nbsp;Occupants
+  p.ft13(style='position:absolute;top:535px;left:458px;white-space:nowrap') 7
+  p.ft12(style='position:absolute;top:308px;left:65px;white-space:nowrap')
+    b Name
+  p.ft13(style='position:absolute;top:333px;left:65px;white-space:nowrap')=tenantname
+  p.ft12(style='position:absolute;top:377px;left:65px;white-space:nowrap')
+    b Address
+  p.ft15(style='position:absolute;top:403px;left:65px;white-space:nowrap')=tenantaddress
+    | 
+    br
+    | 
+    br
+    | 
+  p.ft12(style='position:absolute;top:488px;left:65px;white-space:nowrap')
+    b Phone&nbsp;Number
+  p.ft13(style='position:absolute;top:513px;left:65px;white-space:nowrap')=tenantphone
+  p.ft11(style='position:absolute;top:638px;left:65px;white-space:nowrap')
+    | House&nbsp;Rental&nbsp;Information
+  p.ft16(style='position:absolute;top:696px;left:452px;white-space:nowrap')
+    b
+      | Rent&nbsp;Amount&nbsp;per&nbsp;
+      br
+      | Month
+  p.ft15(style='position:absolute;top:695px;left:613px;white-space:nowrap')=pay
+    | 
+    br
+    | 
+    br
+    | 
+  p.ft12(style='position:absolute;top:696px;left:65px;white-space:nowrap')
+    b House&nbsp;Rental&nbsp;Address
+  p.ft15(style='position:absolute;top:721px;left:65px;white-space:nowrap')=address
+    |
+    br
+    | 
+    br
+    | 
+  p.ft12(style='position:absolute;top:772px;left:452px;white-space:nowrap')
+    b last&nbsp;months 
+  p.ft15(style='position:absolute;top:772px;left:613px;white-space:nowrap')=last
+    | 
+    br
+    | 
+    br
+    | 
+  p.ft12(style='position:absolute;top:798px;left:65px;white-space:nowrap')
+    b Date&nbsp;of&nbsp;Execution
+  p.ft13(style='position:absolute;top:824px;left:65px;white-space:nowrap')=releaseDate
+    | 
+  p.ft12(style='position:absolute;top:849px;left:452px;white-space:nowrap')
+    b Late&nbsp;Charges
+  p.ft15(style='position:absolute;top:848px;left:613px;white-space:nowrap')
+  p=payDate
+    |
+    br
+    | 
+    br
+    | 
+  p.ft12(style='position:absolute;top:860px;left:65px;white-space:nowrap')
+    b Start&nbsp;Date&nbsp;of&nbsp;Agreement
+  p.ft13(style='position:absolute;top:885px;left:65px;white-space:nowrap')=releaseDate
+    | 
+  p.ft12(style='position:absolute;top:925px;left:65px;white-space:nowrap')
+    b End&nbsp;Date&nbsp;of&nbsp;Agreement
+  p.ft13(style='position:absolute;top:951px;left:65px;white-space:nowrap')=endDate
+    | =
+ 
+ #page2-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4mNprRuRlf7PMHGV0IHltMyHg_0JPZdADj8n9i14tU_jldLVtKX251rj4jTLM5aX8uIhgV8d7IfjSyEtQ0p2pftfipChBeLMZyyRcr_XJ2bQjLSOzqA0Xl80hbj3Yg5GTNCHH_GgTWhjdpiIr24xYXG9ET-S12M30-3JP5PkIUmOeoTuLPFkx2gzexyD06Xs2K?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft23(style='position:absolute;top:102px;left:58px;white-space:nowrap')
+    | 
+    b 
+    | 
+    b 
+    | 
+    br
+    b
+  p.ft20(style='position:absolute;top:122px;left:157px;white-space:nowrap') &nbsp;(Tenant).
+  p.ft24(style='position:absolute;top:164px;left:58px;white-space:nowrap')
+    b
+      | I.&nbsp;ACKNOWLEDGMENT
+      br
+    | The&nbsp;Landlord&nbsp;agrees&nbsp;to&nbsp;rent&nbsp;the&nbsp;house&nbsp;to&nbsp;the&nbsp;Tenant&nbsp;under&nbsp;these&nbsp;terms&nbsp;in&nbsp;its&nbsp;present&nbsp;condition&nbsp;located&nbsp;at
+  p.ft25(style='position:absolute;top:223px;left:58px;white-space:nowrap')
+    | First&nbsp;Name:&nbsp;Michaelina
+    br
+    | Last&nbsp;Name:&nbsp;Philipart
+    br
+    | Credit&nbsp;Card&nbsp;Number:&nbsp;5100133585756668
+    br
+    | Security&nbsp;Code:&nbsp;360
+    br
+    | Expiration&nbsp;Month:&nbsp;12
+    br
+    | Expiration&nbsp;Year:&nbsp;2024
+    br
+    | Street&nbsp;Address:&nbsp;06513&nbsp;Browning&nbsp;Terrace
+    br
+    | Street&nbsp;Address&nbsp;Line&nbsp;2:&nbsp;2201&nbsp;Loomis&nbsp;Trail
+    br
+    | City:&nbsp;Boise
+    br
+    | State&nbsp;/&nbsp;Province:&nbsp;Idaho
+    br
+    | Postal&nbsp;/&nbsp;Zip&nbsp;Code:&nbsp;83757
+    br
+    | Country:&nbsp;United&nbsp;States
+  p.ft20(style='position:absolute;top:486px;left:58px;white-space:nowrap')
+    | The&nbsp;Tenant&nbsp;acknowledges&nbsp;the&nbsp;terms&nbsp;of&nbsp;this&nbsp;Agreement&nbsp;and&nbsp;comply.
+  p.ft25(style='position:absolute;top:528px;left:58px;white-space:nowrap')
+    b
+      | II.&nbsp;AGREEMENT&nbsp;TERM
+      br
+    | This&nbsp;House&nbsp;Rental&nbsp;Agreement&nbsp;will&nbsp;begin&nbsp;on&nbsp;
+    b Thursday,&nbsp;September&nbsp;12,&nbsp;1991
+    | &nbsp;and&nbsp;end&nbsp;on&nbsp;
+    b Thursday,&nbsp;September&nbsp;12,&nbsp;1991
+    | .&nbsp;
+    br
+    | After&nbsp;this,&nbsp;a&nbsp;renewal&nbsp;agreement&nbsp;will&nbsp;be&nbsp;created&nbsp;for&nbsp;the&nbsp;new&nbsp;term.
+  p.ft25(style='position:absolute;top:609px;left:58px;white-space:nowrap')
+    b
+      | III.&nbsp;MONTHLY&nbsp;RENTAL
+      br
+    | The&nbsp;monthly&nbsp;rental&nbsp;shall&nbsp;be&nbsp;
+    b
+      | Duis&nbsp;aliquam&nbsp;convallis&nbsp;nunc.&nbsp;Proin&nbsp;at&nbsp;turpis&nbsp;a&nbsp;pede&nbsp;posuere&nbsp;nonummy.&nbsp;Integer&nbsp;non&nbsp;velit.
+    | &nbsp;per&nbsp;
+    br
+    | month.
+  p.ft20(style='position:absolute;top:689px;left:58px;white-space:nowrap')
+    | Payments&nbsp;will&nbsp;be&nbsp;made&nbsp;by&nbsp;
+    b Option&nbsp;3
+    | .
+  p.ft20(style='position:absolute;top:729px;left:58px;white-space:nowrap')
+    | The&nbsp;monthly&nbsp;rental&nbsp;shall&nbsp;be&nbsp;collected&nbsp;by&nbsp;
+    b Iorgos&nbsp;Tocknell&nbsp;Option&nbsp;3
+    | .
+  p.ft26(style='position:absolute;top:770px;left:58px;white-space:nowrap')
+    | If&nbsp;the&nbsp;tenant&nbsp;failed&nbsp;to&nbsp;pay&nbsp;within&nbsp;five&nbsp;(5)&nbsp;days&nbsp;after&nbsp;the&nbsp;due&nbsp;date,&nbsp;late&nbsp;charges&nbsp;of&nbsp;
+    b
+      | Duis&nbsp;aliquam&nbsp;convallis&nbsp;nunc.&nbsp;Proin&nbsp;at&nbsp;
+      br
+      | turpis&nbsp;a&nbsp;pede&nbsp;posuere&nbsp;nonummy.&nbsp;Integer&nbsp;non&nbsp;velit.
+  p.ft20(style='position:absolute;top:790px;left:380px;white-space:nowrap')
+    | will&nbsp;be&nbsp;applied.
+  p.ft26(style='position:absolute;top:832px;left:58px;white-space:nowrap')
+    b
+      | IV.&nbsp;SECURITY&nbsp;DEPOSIT
+      br
+    | The&nbsp;Tenants&nbsp;agree&nbsp;to&nbsp;pay&nbsp;a&nbsp;security&nbsp;deposit&nbsp;if&nbsp;
+    b
+      | Duis&nbsp;aliquam&nbsp;convallis&nbsp;nunc.&nbsp;Proin&nbsp;at&nbsp;turpis&nbsp;a&nbsp;pede&nbsp;posuere&nbsp;nonummy.&nbsp;
+      br
+      | Integer&nbsp;non&nbsp;velit.
+  p.ft20(style='position:absolute;top:871px;left:166px;white-space:nowrap') .
+  p.ft25(style='position:absolute;top:911px;left:58px;white-space:nowrap')
+    | The&nbsp;Security&nbsp;Deposit&nbsp;is&nbsp;to&nbsp;be&nbsp;refunded&nbsp;upon&nbsp;leaving&nbsp;the&nbsp;residency,&nbsp;terminating&nbsp;this&nbsp;contract,&nbsp;and&nbsp;returning&nbsp;the&nbsp;keys&nbsp;
+    br
+    | to&nbsp;the&nbsp;Landlord.
+  p.ft20(style='position:absolute;top:972px;left:58px;white-space:nowrap')
+    | The&nbsp;Security&nbsp;Deposit&nbsp;will&nbsp;cover&nbsp;for&nbsp;any&nbsp;damage&nbsp;to&nbsp;the&nbsp;premise.
+  p.ft20(style='position:absolute;top:1012px;left:58px;white-space:nowrap')
+    | This&nbsp;Security&nbsp;Deposit&nbsp;will&nbsp;also&nbsp;cover&nbsp;in&nbsp;case&nbsp;the&nbsp;Tenant&nbsp;fails&nbsp;to&nbsp;pay&nbsp;the&nbsp;utility&nbsp;bills.
+  p.ft24(style='position:absolute;top:1055px;left:58px;white-space:nowrap')
+    b
+      | V.&nbsp;UTILITIES
+      br
+    | Tenants&nbsp;will&nbsp;be&nbsp;responsible&nbsp;for&nbsp;paying&nbsp;all&nbsp;utilities&nbsp;like&nbsp;electricity,&nbsp;water,&nbsp;gas,&nbsp;telephone,&nbsp;cable,&nbsp;and&nbsp;internet.
+  p.ft24(style='position:absolute;top:1115px;left:58px;white-space:nowrap')
+    b
+      | VI.&nbsp;MAINTENANCE&nbsp;AND&nbsp;DAMAGES
+      br
+    | Tenant&nbsp;shall&nbsp;keep&nbsp;the&nbsp;premises&nbsp;in&nbsp;good&nbsp;condition.
+  p.ft25(style='position:absolute;top:1174px;left:58px;white-space:nowrap')
+    | The&nbsp;Tenant&nbsp;will&nbsp;be&nbsp;responsible&nbsp;for&nbsp;any&nbsp;damage&nbsp;caused&nbsp;which&nbsp;means&nbsp;the&nbsp;Tenant&nbsp;will&nbsp;should&nbsp;all&nbsp;the&nbsp;expenses&nbsp;in&nbsp;fixing&nbsp;
+    br
+    | it.
+ #page3-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4mAwMv3tEeY7l93vMcKbwzHG0-aXX_zV0z2Gqz3at_tkR1x6tuyrINttH8zjP3U0o7GlREwDZ_MIf2R1B3b2v_PA8I76XUAQCHihlb1w1UfJbq9lUcG_oj-NMC3FNVyIhQ8bXrmicjssFqK31fPqyPnvp96J8I59uOJl4Rln1HS69sGOpB7bvN-CETVojrWpox?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft30(style='position:absolute;top:22px;left:58px;white-space:nowrap')
+    | Tenants&nbsp;shall&nbsp;follow&nbsp;reasonable&nbsp;standards&nbsp;of&nbsp;cleanliness.
+  p.ft30(style='position:absolute;top:62px;left:58px;white-space:nowrap')
+    | Written&nbsp;permission&nbsp;from&nbsp;the&nbsp;landlord&nbsp;is&nbsp;needed&nbsp;for&nbsp;any&nbsp;alterations.
+  p.ft30(style='position:absolute;top:103px;left:58px;white-space:nowrap')
+    | The&nbsp;Landlord&nbsp;may&nbsp;enter&nbsp;the&nbsp;premises&nbsp;for&nbsp;the&nbsp;purposes&nbsp;of&nbsp;inspection,&nbsp;repair,&nbsp;maintenance,&nbsp;and&nbsp;emergency.
+  p.ft34(style='position:absolute;top:145px;left:58px;white-space:nowrap')
+    b
+      | VII.&nbsp;OCCUPANCY
+      br
+    | The&nbsp;number&nbsp;of&nbsp;occupants&nbsp;is&nbsp;limited&nbsp;to&nbsp;
+    b 7
+    | .&nbsp;It&nbsp;will&nbsp;only&nbsp;be&nbsp;occupied&nbsp;by&nbsp;the&nbsp;Tenant&nbsp;and&nbsp;his/her&nbsp;family&nbsp;members.
+  p.ft33(style='position:absolute;top:1242px;left:832px;white-space:nowrap') 3
+ #page4-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4min2dDIpTB5D2DO81mSli_JBHcgOpT87-7tPpjtDs1f2rwSt41IY2w5hxziMUVLAxPDuAKMKlxcxoPww_VxuKAXrzPw2xxVlPEGZ0sn9USIb_r8aGdwiTuGLsiZsCQZBixS7241hWBl8Zh4waWOjUSliY2HqUYdAmVE0yEfN7ovQG0MHyg2IFkDLnhVEJfwMC?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft44(style='position:absolute;top:114px;left:58px;white-space:nowrap')
+    b
+      | VIII.&nbsp;RULES&nbsp;and&nbsp;REGULATIONS
+      br
+    | The&nbsp;number&nbsp;of&nbsp;guests&nbsp;shall&nbsp;not&nbsp;exceed&nbsp;3.
+  p.ft41(style='position:absolute;top:172px;left:58px;white-space:nowrap')
+    | An&nbsp;overnight&nbsp;guest&nbsp;may&nbsp;not&nbsp;stay&nbsp;for&nbsp;more&nbsp;than&nbsp;two&nbsp;(2)&nbsp;nights.
+  p.ft41(style='position:absolute;top:213px;left:58px;white-space:nowrap')
+    | Pets&nbsp;are&nbsp;not&nbsp;allowed&nbsp;on&nbsp;the&nbsp;premises.
+  p.ft41(style='position:absolute;top:253px;left:58px;white-space:nowrap')
+    | Smoking&nbsp;is&nbsp;prohibited&nbsp;on&nbsp;the&nbsp;premises.
+  p.ft44(style='position:absolute;top:296px;left:58px;white-space:nowrap')
+    b
+      | IX.&nbsp;PEACE&nbsp;AND&nbsp;ORDER
+      br
+    | Tenants&nbsp;are&nbsp;not&nbsp;allowed&nbsp;to&nbsp;keep&nbsp;&filig;rearms,&nbsp;bows,&nbsp;combat&nbsp;knife&nbsp;and&nbsp;other&nbsp;weapons&nbsp;on&nbsp;the&nbsp;premises.
+  p.ft41(style='position:absolute;top:355px;left:58px;white-space:nowrap')
+    | Tenants&nbsp;agree&nbsp;not&nbsp;to&nbsp;use&nbsp;the&nbsp;premises&nbsp;in&nbsp;a&nbsp;way&nbsp;to&nbsp;disturb&nbsp;the&nbsp;peace&nbsp;in&nbsp;the&nbsp;neighborhood.
+  p.ft44(style='position:absolute;top:397px;left:58px;white-space:nowrap')
+    b
+      | X.&nbsp;ABANDONMENT
+      br
+    | If&nbsp;the&nbsp;Tenant&nbsp;abandons&nbsp;the&nbsp;house,&nbsp;the&nbsp;Landlord&nbsp;has&nbsp;the&nbsp;right&nbsp;to&nbsp;enter&nbsp;the&nbsp;house&nbsp;by&nbsp;any&nbsp;means&nbsp;without&nbsp;liabilities.
+  p.ft45(style='position:absolute;top:456px;left:58px;white-space:nowrap')
+    | The&nbsp;Landlord&nbsp;is&nbsp;allowed&nbsp;to&nbsp;presume&nbsp;that&nbsp;Tenant&nbsp;abandoned&nbsp;the&nbsp;premise&nbsp;if&nbsp;the&nbsp;furniture&nbsp;and&nbsp;other&nbsp;items&nbsp;were&nbsp;
+    br
+    | removed.
+  p.ft45(style='position:absolute;top:517px;left:58px;white-space:nowrap')
+    | If&nbsp;the&nbsp;house&nbsp;is&nbsp;unoccupied&nbsp;for&nbsp;a&nbsp;period&nbsp;of&nbsp;15&nbsp;consecutive&nbsp;days&nbsp;without&nbsp;written&nbsp;noti&filig;cation&nbsp;to&nbsp;the&nbsp;Landlord,&nbsp;it&nbsp;will&nbsp;be&nbsp;
+    br
+    | considered&nbsp;as&nbsp;abandonment.
+  p.ft44(style='position:absolute;top:579px;left:58px;white-space:nowrap')
+    b
+      | XI.&nbsp;AMENDMENTS
+      br
+    | This&nbsp;Agreement&nbsp;can&nbsp;only&nbsp;be&nbsp;changed&nbsp;or&nbsp;modi&filig;ed&nbsp;through&nbsp;the&nbsp;written&nbsp;consent&nbsp;of&nbsp;both&nbsp;parties.
+  p.ft44(style='position:absolute;top:640px;left:58px;white-space:nowrap')
+    b
+      | XII.&nbsp;GOVERNING&nbsp;LAW
+      br
+    | This&nbsp;agreement&nbsp;shall&nbsp;be&nbsp;governed&nbsp;under&nbsp;the&nbsp;laws&nbsp;of&nbsp;the&nbsp;
+    b United&nbsp;States
+    | .
+  p.ft41(style='position:absolute;top:699px;left:58px;white-space:nowrap')
+    | We,&nbsp;the&nbsp;undersigned,&nbsp;hereby&nbsp;agreed&nbsp;that&nbsp;we&nbsp;have&nbsp;read&nbsp;this&nbsp;agreement&nbsp;and&nbsp;bounded&nbsp;by&nbsp;its&nbsp;terms&nbsp;and&nbsp;conditions.
+  p.ft41(style='position:absolute;top:734px;left:416px;white-space:nowrap') 9/12/1991
+  p.ft42(style='position:absolute;top:796px;left:174px;white-space:nowrap')
+    b Landlord&nbsp;Signature
+  p.ft42(style='position:absolute;top:796px;left:575px;white-space:nowrap')
+    b Tenant&nbsp;Signature
+  div(style='position:relative;left: 15%;bottom: 15%;')
+    .wrap
+     form(action='/obligate' method='POST')
+       button.buttn(type='submit') Obligate Pay
+mixin button
+  .wrap
+   form(action='/rent' method='GET')
+     button.buttn(type='submit') Create Contract
+
+
+
+-var i = 0                    
+while i<Rarr.length 
+   - var x = i++
+   - var r=Rarr[x]
+   - var valuedocumentId=r.valuedocumentId
+   - var e= estatearray[0]
+   - var  lessorphone=r.lessorphone ;
+   - var tenantphone = r.tenantphone
+   - var  tenantaddress=r.tenantaddress ;
+   - var  releaseDate=r.releaseDate ;
+   - var  payDate=r.payDate ;
+   - var  endDate=r.endDate ;
+   - var  foryears=r.foryears ;
+   - var  pay= r.pay;
+   - var  tenantbankName= r.tenantbankName;
+   - var  lessorbankName=r.lessorbankName ;
+   - var  tenantname=r.tenantname ;
+   - var  lessorname= r.lessorname;
+   - var propretysize =e.propretysize ;
+   - var lotsize =e.lotsize ;
+   - var rooms =e.rooms ;
+   - var garages =e.garages ;
+   - var yearbuilt =e.yearbuilt ;
+   - var availblefrom =e.availblefrom ;
+   - var bathrooms = e.bathrooms;
+   - var structuretype =e.structuretype ;
+   - var address =e.address ;
+   - var  releasedate=e.REreleaseDate ;
+   - var ownerid =e.ownerid ;
+   - var  tenant=e.tenant ;
+   - var googleaddress =e.gaddress ;
+   - var price =price ;
+   - var last = r.last 
+   +content(lessorphonetenantaddress,releaseDate,payDate,endDate,pay,tenantname,lessorname,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address,releasedate,ownerid,tenant,googleaddress,price,last)             
+
+
+-var length = Rarr.length
+case length
+    when 0
+      +button
+
+// Option 1: jQuery and Bootstrap Bundle (includes Popper)
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js' integrity='sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s' crossorigin='anonymous')
+script(src='//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js')
+script.
+  // ---------Responsive-navbar-active-animation-----------
+  function test() {
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click", "li", function (e) {
+  $('#navbarSupportedContent ul li').removeClass("active");
+  $(this).addClass('active');
+  var activeWidthNewAnimHeight = $(this).innerHeight();
+  var activeWidthNewAnimWidth = $(this).innerWidth();
+  var itemPosNewAnimTop = $(this).position();
+  var itemPosNewAnimLeft = $(this).position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  });
+  }
+  $(document).ready(function () {
+  setTimeout(function () { test(); });
+  });
+  $(window).on('resize', function () {
+  setTimeout(function () { test(); }, 500);
+  });
+  $(".navbar-toggler").click(function () {
+  setTimeout(function () { test(); });
+  });
+script(type='text/javascript' src='d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_id_d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_files/wz_jsgraphics.js')

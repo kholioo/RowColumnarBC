@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+
+        /*----------multi-level-accordian-menu------------*/
+        .navbar-logo {
+            padding: 15px;
+            color: #fff;
+        }
+
+        .navbar-mainbg {
+            background-color: #b9a754;
+            padding: 0px;
+        }
+
+        #navbarSupportedContent {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #navbarSupportedContent ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #navbarSupportedContent ul li a i {
+            margin-right: 10px;
+        }
+
+        #navbarSupportedContent li {
+            list-style-type: none;
+            float: left;
+        }
+
+        #navbarSupportedContent ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 20px 20px;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        #navbarSupportedContent>ul>li.active>a {
+            color: #b9a754;
+            background-color: transparent;
+            transition: all 0.7s;
+        }
+
+        #navbarSupportedContent a:not(:only-child):after {
+            content: "\f105";
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 14px;
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            padding-right: 3px;
+            vertical-align: middle;
+            font-weight: 900;
+            transition: 0.5s;
+        }
+
+        #navbarSupportedContent .active>a:not(:only-child):after {
+            transform: rotate(90deg);
+        }
+
+        .hori-selector {
+            display: inline-block;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background-color: #fff;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            margin-top: 10px;
+        }
+
+        .hori-selector .right,
+        .hori-selector .left {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            bottom: 10px;
+        }
+
+        .hori-selector .right {
+            right: -25px;
+        }
+
+        .hori-selector .left {
+            left: -25px;
+        }
+
+        .hori-selector .right:before,
+        .hori-selector .left:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #b9a754;
+        }
+
+        .hori-selector .right:before {
+            bottom: 0;
+            right: -25px;
+        }
+
+        .hori-selector .left:before {
+            bottom: 0;
+            left: -25px;
+        }
+
+
+
+
+        @media (max-width: 991px) {
+            #navbarSupportedContent ul li a {
+                padding: 12px 30px;
+            }
+
+            .hori-selector {
+                margin-top: 0px;
+                margin-left: 10px;
+                border-radius: 0;
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+            }
+
+            .hori-selector .left,
+            .hori-selector .right {
+                right: 10px;
+            }
+
+            .hori-selector .left {
+                top: -25px;
+                left: auto;
+            }
+
+            .hori-selector .right {
+                bottom: -25px;
+            }
+
+            .hori-selector .left:before {
+                left: -25px;
+                top: -25px;
+            }
+
+            .hori-selector .right:before {
+                bottom: -25px;
+                left: -25px;
+            }
+        }
+    </style>
+
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft10 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft11 {
+            font-size: 42px;
+            font-family: Times;
+            color: #050a33;
+        }
+
+        .ft12 {
+            font-size: 15px;
+            font-family: Times;
+            color: #050a33;
+        }
+
+        .ft13 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft14 {
+            font-size: 15px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft15 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft16 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #4b5062;
+        }
+    </style>
+
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft20 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft21 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft22 {
+            font-size: 18px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft23 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft24 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft25 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #4b5062;
+        }
+    </style>
+
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft30 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft31 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft32 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft33 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #4b5062;
+        }
+    </style>
+
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft40 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft41 {
+            font-size: 14px;
+            font-family: Times;
+            color: #4b5062;
+        }
+
+        .ft42 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft43 {
+            font-size: 11px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft44 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #4b5062;
+        }
+    </style>
+
+    <style>
+        /* Reset */
+        @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+        /* Main Styles */
+        .button {
+            display: block;
+            background-color: #c0392b;
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            margin: auto;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button span,
+        .button .icon {
+            display: block;
+            height: 100%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+        }
+
+        .button span {
+            width: 72%;
+            line-height: inherit;
+            font-size: 22px;
+            text-transform: uppercase;
+            left: 0;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button span:after {
+            content: '';
+            background-color: #a53125;
+            width: 2px;
+            height: 70%;
+            position: absolute;
+            top: 15%;
+            right: -1px;
+        }
+
+        .button .icon {
+            width: 28%;
+            right: 0;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button .icon .fa {
+            font-size: 30px;
+            vertical-align: middle;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+        }
+
+        .button .icon .fa-remove {
+            height: 36px;
+        }
+
+        .button .icon .fa-check {
+            display: none;
+        }
+
+        .button.success span,
+        .button:hover span {
+            left: -72%;
+            opacity: 0;
+        }
+
+        .button.success .icon,
+        .button:hover .icon {
+            width: 100%;
+        }
+
+        .button.success .icon .fa,
+        .button:hover .icon .fa {
+            font-size: 45px;
+        }
+
+        .button.success {
+            background-color: #27ae60;
+        }
+
+        .button.success .icon .fa-remove {
+            display: none;
+        }
+
+        .button.success .icon .fa-check {
+            display: inline-block;
+        }
+
+        .button:hover {
+            opacity: .9;
+        }
+
+        .button:hover .icon .fa-remove {
+            height: 46px;
+        }
+
+        .button:active {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="#">BlockCenter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home">
+                        <i class="fas fa-tachometer-alt">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+
+                                <path fill-rule="evenodd"
+                                    d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </i>Identification
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="id"><i class="far fa-address-book">
+
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z" />
+                                <path
+                                    d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                            </svg></i>Money
+
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estate">
+                        <i class="far fa-clone">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+
+                            </svg></i>Real Estates</a>
+                </li>
+                <li class="nav-item active ">
+                    <a class="nav-link" href="contract" href="id.ejs"><i class="far fa-calendar-alt"><svg width="1em"
+                                height="1em" viewBox="0 0 16 16" class="bi bi-file-text" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z" />
+                                <path fill-rule="evenodd"
+                                    d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+                            </svg></i>Contracts</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="government"><i class="far fa-chart-bar"><svg width="1em" height="1em"
+                                viewBox="0 0 16 16" class="bi bi-building" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                                <path
+                                    d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+                            </svg></i>Governmental
+                        Services</a>
+
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="car"> <i class="fa fa-car"></i>My Car</a>
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page1-div" style="position:relative;left: 15%; width:892px;height:1262px;">
+        <img src="https://bl3302files.storage.live.com/y4mBIt1X2b1eZPzo-eth_T0f2gVMItFudj1siLMvdJLICQ1ieXH87bCi1ToEOYUxkpcaG6cktKprHcc0rR07ny07xFW439BOZnDIiwXl8fwloOZTRr5kDcbjW2NzUKrxpFBfUo_IOXKqgEZnYCgtktxmWqlvKldb6ZgnpEvp7N2JI3NbgoNQTjMt6g_0wb42vTN?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:15px;left:793px;white-space:nowrap" class="ft10">19/11/2020</p>
+        <p style="position:absolute;top:16px;left:111px;white-space:nowrap" class="ft11">
+            <b>Employment&#160;Contract&#160;</b>
+        </p>
+        <p style="position:absolute;top:192px;left:155px;white-space:nowrap" class="ft12">
+            <b>Name&#160;of&#160;Company</b>
+        </p>
+        <p style="position:absolute;top:219px;left:155px;white-space:nowrap" class="ft16">
+            Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate<br />elementum.</p>
+        <p style="position:absolute;top:192px;left:526px;white-space:nowrap" class="ft12"><b>Company's&#160;Address</b>
+        </p>
+        <p style="position:absolute;top:219px;left:526px;white-space:nowrap" class="ft16">
+            20&#160;Center&#160;Plaza,&#160;1102&#160;Nova&#160;Terrace<br />Saint&#160;Paul,&#160;Minnesota,&#160;55115<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:347px;left:155px;white-space:nowrap" class="ft12">
+            <b>Name&#160;of&#160;Employee</b>
+        </p>
+        <p style="position:absolute;top:374px;left:155px;white-space:nowrap" class="ft16">
+            Idelle&#160;Mauris&#160;enim&#160;leo,&#160;rhoncus&#160;sed,&#160;vestibulum<br />sit&#160;amet,&#160;cursus&#160;id,&#160;turpis.&#160;Integer&#160;aliquet,<br />massa&#160;id&#160;lobortis&#160;convallis,&#160;tortor&#160;risus&#160;dapibus<br />augue,&#160;vel&#160;accumsan&#160;tellus&#160;nisi&#160;eu&#160;orci.&#160;Mauris<br />lacinia&#160;sapien&#160;quis&#160;libero.&#160;Lydiate
+        </p>
+        <p style="position:absolute;top:347px;left:526px;white-space:nowrap" class="ft12"><b>Employee's&#160;Address</b>
+        </p>
+        <p style="position:absolute;top:374px;left:526px;white-space:nowrap" class="ft16">
+            20&#160;Center&#160;Plaza,&#160;1102&#160;Nova&#160;Terrace<br />Saint&#160;Paul,&#160;Minnesota,&#160;55115<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:516px;left:155px;white-space:nowrap" class="ft12">
+            <b>Employee's&#160;Position</b>
+        </p>
+        <p style="position:absolute;top:543px;left:155px;white-space:nowrap" class="ft16">
+            Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate<br />elementum.</p>
+        <p style="position:absolute;top:516px;left:526px;white-space:nowrap" class="ft12">
+            <b>Country&#160;of&#160;Employment</b>
+        </p>
+        <p style="position:absolute;top:543px;left:526px;white-space:nowrap" class="ft16">
+            20&#160;Center&#160;Plaza,&#160;1102&#160;Nova&#160;Terrace<br />Saint&#160;Paul,&#160;Minnesota,&#160;55115
+        </p>
+        <p style="position:absolute;top:627px;left:155px;white-space:nowrap" class="ft12">
+            <b>Contractual&#160;Work&#160;Hours</b>
+        </p>
+        <p style="position:absolute;top:663px;left:167px;white-space:nowrap" class="ft14">Option&#160;3</p>
+        <p style="position:absolute;top:627px;left:526px;white-space:nowrap" class="ft12">
+            <b>Contractual&#160;Work&#160;Days</b>
+        </p>
+        <p style="position:absolute;top:663px;left:537px;white-space:nowrap" class="ft13">Option&#160;3</p>
+        <p style="position:absolute;top:756px;left:155px;white-space:nowrap" class="ft12">
+            <b>Minimum&#160;Number&#160;of&#160;Years</b>
+        </p>
+        <p style="position:absolute;top:792px;left:167px;white-space:nowrap" class="ft13">Option&#160;3</p>
+        <p style="position:absolute;top:756px;left:526px;white-space:nowrap" class="ft12">
+            <b>Contractual&#160;Monthly&#160;Salary</b>
+        </p>
+        <p style="position:absolute;top:783px;left:526px;white-space:nowrap" class="ft16">
+            Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate<br />elementum.</p>
+        <p style="position:absolute;top:882px;left:155px;white-space:nowrap" class="ft12">
+            <b>Date&#160;of&#160;Resumption</b>
+        </p>
+        <p style="position:absolute;top:909px;left:155px;white-space:nowrap" class="ft13">12/8/1998</p>
+        <p style="position:absolute;top:1220px;left:1px;white-space:nowrap" class="ft15"><a
+                href="https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203234134972047&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer">Create&#160;your&#160;own&#160;automated&#160;PDFs&#160;with&#160;JotForm&#160;PDF&#160;Editor</a>
+        </p>
+
+    </div>
+
+
+
+
+
+
+    <div id="page2-div" style="position:relative;left: 15%;width:892px;height:1262px;">
+
+
+        <img src="https://bl3302files.storage.live.com/y4mTkBBjMTs3pgpWbm6j6OfftSmlQyltr7F2kfYOm6AOW_onboJ3ZxchCgKDVX0SzEEOhtaYubyYqGVVowUfGpAuv2zvozw4IprbXT2bo_kfLWGIqHCL2NsYuvtsqeuL8yiL5Ii9-TP3eX9nA6gRWhYdGwEaGg4x2tDQ8jvjBENxjUWP-tXDr8yJIlZaS-dszcz?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:112px;left:81px;white-space:nowrap" class="ft24">
+            Dear <b>Idelle&#160;Mauris&#160;enim&#160;leo,&#160;rhoncus&#160;sed,&#160;vestibulum&#160;sit&#160;amet,&#160;cursus&#160;id,&#160;turpis.&#160;Integer&#160;aliquet,&#160;massa&#160;id&#160;<br />lobortis&#160;convallis,&#160;tortor&#160;risus&#160;dapibus&#160;augue,&#160;vel&#160;accumsan&#160;tellus&#160;nisi&#160;eu&#160;orci.&#160;Mauris&#160;lacinia&#160;sapien&#160;quis&#160;<br />libero.&#160;Lydiate</b>,
+        </p>
+        <p style="position:absolute;top:202px;left:100px;white-space:nowrap" class="ft22">
+            <b>Employment&#160;Contract&#160;for Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate&#160;elementum.</b>
+        </p>
+        <p style="position:absolute;top:257px;left:81px;white-space:nowrap" class="ft25">
+            Sequel&#160;to&#160;your&#160;successful&#160;interview&#160;with&#160;us,&#160;we&#160;are&#160;pleased&#160;to&#160;offer&#160;you&#160;the&#160;job of&#160;<b>Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;<br />mauris&#160;vulputate&#160;elementum.</b>&#160;with&#160;<b>Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate&#160;elementum.</b>&#160;with&#160;effect&#160;from&#160;<br /><b>Wednesday,&#160;August&#160;12,&#160;1998</b>&#160;under&#160;the&#160;following&#160;terms&#160;and&#160;conditions.
+        </p>
+        <p style="position:absolute;top:334px;left:126px;white-space:nowrap" class="ft21"><b>DURATION</b></p>
+        <p style="position:absolute;top:374px;left:81px;white-space:nowrap" class="ft25">
+            That&#160;&#160;the&#160;&#160;Employment&#160;&#160;period&#160;&#160;shall&#160;&#160;be&#160;&#160;for&#160;&#160;a&#160;&#160;minimum&#160;&#160;of&#160;&#160;<b>Option&#160;&#160;3</b>&#160;&#160;after&#160;&#160;which&#160;&#160;this&#160;&#160;contract&#160;&#160;is&#160;&#160;subject&#160;&#160;to&#160;<br />renewal&#160;or&#160;as&#160;the&#160;Company&#160;may&#160;otherwise&#160;determine.
+        </p>
+        <p style="position:absolute;top:463px;left:126px;white-space:nowrap" class="ft20">
+             <b>TERMINATION&#160;OF&#160;CONTRACT</b></p>
+        <p style="position:absolute;top:503px;left:81px;white-space:nowrap" class="ft25">
+            That&#160;after&#160;this&#160;mandatory&#160;period&#160;of&#160;<b>Option&#160;3</b>,&#160;either&#160;party&#160;can&#160;terminate&#160;with&#160;immediate&#160;effect.&#160;Where&#160;your&#160;<br />employment&#160;is&#160;terminated&#160;with&#160;immediate&#160;effect,&#160;you&#160;will&#160;be&#160;paid&#160;for&#160;days&#160;worked&#160;prior&#160;to&#160;termination.&#160;At&#160;<br />whatever&#160;&#160;period,&#160;&#160;your&#160;&#160;contract&#160;&#160;could&#160;&#160;be&#160;&#160;terminated&#160;&#160;for&#160;&#160;any&#160;&#160;bad&#160;&#160;conduct&#160;&#160;or&#160;&#160;performance&#160;&#160;with&#160;&#160;bene&#160;ts&#160;&#160;or&#160;<br />payment.
+        </p>
+        <p style="position:absolute;top:633px;left:126px;white-space:nowrap" class="ft21"><b>REMUNERATION</b></p>
+        <p style="position:absolute;top:694px;left:81px;white-space:nowrap" class="ft25">
+            The&#160;sum&#160;of&#160;<b>Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate&#160;elementum.</b>&#160;only&#160;shall&#160;be&#160;paid&#160;to&#160;you&#160;monthly&#160;for&#160;the&#160;<br />duration&#160;of&#160;your&#160;employment.
+        </p>
+        <p style="position:absolute;top:782px;left:126px;white-space:nowrap" class="ft21"><b>PLACE&#160;OF&#160;WORK</b>
+        </p>
+        <p style="position:absolute;top:823px;left:81px;white-space:nowrap" class="ft25">
+            Your&#160;place&#160;of&#160;primary&#160;assignment&#160;shall&#160;be&#160;within <b>First&#160;Name:&#160;Giff<br />Last&#160;Name:&#160;Ebbing<br />Credit&#160;Card&#160;Number:&#160;676744605416527426<br />Security&#160;Code:&#160;603<br />Expiration&#160;Month:&#160;8<br />Expiration&#160;Year:&#160;2026<br />Street&#160;Address:&#160;20&#160;Center&#160;Plaza<br />Street&#160;Address&#160;Line&#160;2:&#160;1102&#160;Nova&#160;Terrace<br />City:&#160;Saint&#160;Paul<br />State&#160;/&#160;Province:&#160;Minnesota<br />Postal&#160;/&#160;Zip&#160;Code:&#160;55115<br /></b>.&#160;&#160;It&#160;&#160;is,&#160;&#160;however,&#160;&#160;a&#160;&#160;condition&#160;&#160;of&#160;&#160;this&#160;&#160;employment&#160;&#160;that&#160;&#160;you&#160;&#160;shall&#160;&#160;be&#160;&#160;willing&#160;&#160;to&#160;&#160;work&#160;&#160;in&#160;&#160;any&#160;&#160;capacity&#160;&#160;or&#160;&#160;place&#160;<br />that&#160;&#160;the&#160;&#160;Company&#160;&#160;may&#160;&#160;decide.&#160;&#160;You&#160;&#160;will&#160;&#160;be&#160;&#160;subject&#160;&#160;to&#160;&#160;deployment&#160;&#160;to&#160;&#160;any&#160;&#160;of&#160;&#160;the&#160;&#160;Company's&#160;&#160;business&#160;<br />locations&#160;as&#160;may&#160;be&#160;determined&#160;from&#160;time&#160;to&#160;time&#160;by&#160;the&#160;management.
+        </p>
+        <p style="position:absolute;top:1122px;left:126px;white-space:nowrap" class="ft21">
+            <b>HOURS&#160;OF&#160;WORK</b>
+        </p>
+        <p style="position:absolute;top:1162px;left:81px;white-space:nowrap" class="ft25">
+            You&#160;will&#160;be&#160;required&#160;to&#160;work&#160;from&#160;<b>Option&#160;3</b>&#160;from&#160;<b>Option&#160;3</b>.&#160;You&#160;may,&#160;however, also&#160;be&#160;required&#160;to&#160;work&#160;time-<br />to-time up&#160;to&#160;work&#160;extra&#160;hours&#160;on&#160;a&#160;need&#160;basis.
+        </p>
+        <p style="position:absolute;top:1220px;left:1px;white-space:nowrap" class="ft23"><a
+                href="https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203234134972047&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer">Create&#160;your&#160;own&#160;automated&#160;PDFs&#160;with&#160;JotForm&#160;PDF&#160;Editor</a>
+        </p>
+    </div>
+
+    <div id="page3-div" style="position:relative;left: 15%;width:892px;height:1262px;">
+        <img src="https://bl3302files.storage.live.com/y4mad58BRb55bmdu3wHqRrl3sKroUx01YMb19ImxyQoPpBXobjuHGcajzBL7ucnqwYJvvKpzriAS6AlknbgCssHS0kvPI9gOknhCOCqk1OG-kwk4TfYPdNpBibzI-G5SdQ4x2T6Uuxq2zzJjRBeRI4Z42anIn5xWryg8QKQpIl_6jbYZXNQmVBnlGc0VdnV4y7F?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:2px;left:126px;white-space:nowrap" class="ft30">
+            <b>INDUCTION&#160;AND&#160;TRAINING</b>
+        </p>
+        <p style="position:absolute;top:42px;left:81px;white-space:nowrap" class="ft33">
+            On&#160;&#160;assumption&#160;&#160;of&#160;&#160;duty,&#160;&#160;you&#160;&#160;will&#160;&#160;undergo&#160;&#160;an&#160;&#160;Induction&#160;&#160;programme&#160;&#160;to&#160;&#160;familiarize &#160;you&#160;&#160;with&#160;&#160;the&#160;&#160;activities&#160;<br />within&#160;&#160;the&#160;&#160;Company's&#160;&#160;organizational&#160;&#160;structure.&#160;&#160;You&#160;&#160;may&#160;&#160;also&#160;&#160;be&#160;&#160;required&#160;&#160;to&#160;&#160;undergo&#160;&#160;specially-designed&#160;<br />programmes&#160;to&#160;prepare&#160;you&#160;for&#160;your&#160;assignments.
+        </p>
+        <p style="position:absolute;top:1220px;left:1px;white-space:nowrap" class="ft32"><a
+                href="https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203234134972047&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer">Create&#160;your&#160;own&#160;automated&#160;PDFs&#160;with&#160;JotForm&#160;PDF&#160;Editor</a>
+        </p>
+    </div>
+
+
+    <div id="page4-div" style="position:relative;left: 15%;width:892px;height:1262px;">
+        <img src="https://bl3302files.storage.live.com/y4mSrynuGBvXZIYOi8ibOytijEOpVJZqEKmLOxvbMN8_FbghpEH7lFuJn8F_JEwXHC78FBrXZusMBWNouoJ30cs3wQFIJKsuOiP8ja1AKi_s2wZQlhHh7oE5e0M7mAJSdGIVjXefT0Lu7PUlwC9AiRJX_wNY-wf59jGwJRVkyroBBwGtnLRXBF_c71ayBVAG1TA?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:103px;left:126px;white-space:nowrap" class="ft40"><b>ACCOMMODATION</b></p>
+        <p style="position:absolute;top:144px;left:81px;white-space:nowrap" class="ft44">
+            The&#160;Company,&#160;as&#160;a&#160;rule,&#160;does&#160;not&#160;provide&#160;accommodation&#160;for&#160;its&#160;employees.&#160;However,&#160;staff&#160;on&#160;essential&#160;<br />duties&#160;may&#160;be&#160;provided&#160;with&#160;accommodation&#160;close&#160;to&#160;their&#160;duty&#160;posts&#160;in&#160;due&#160;course.
+        </p>
+        <p style="position:absolute;top:237px;left:126px;white-space:nowrap" class="ft40"><b>CONFIDENTIALITY</b></p>
+        <p style="position:absolute;top:277px;left:81px;white-space:nowrap" class="ft44">
+            In&#160;&#160;view&#160;&#160;of&#160;&#160;the&#160;&#160;con&#160;dential&#160;&#160;nature&#160;&#160;of&#160;&#160;the&#160;&#160;Company's&#160;&#160;objectives,&#160;&#160;you&#160;&#160;will&#160;&#160;be&#160;&#160;subject&#160;&#160;to&#160;&#160;the&#160;&#160;Internal&#160;<br />Regulations&#160;&#160;of&#160;&#160;the&#160;&#160;Company,&#160;&#160;and&#160;&#160;you&#160;&#160;will&#160;&#160;be&#160;&#160;required&#160;&#160;to &#160;abide&#160;&#160;by&#160;&#160;the&#160;&#160;duties&#160;&#160;of&#160;&#160;con&#160;dentiality.&#160;&#160;Breach&#160;&#160;of&#160;<br />these&#160;duties&#160;shall&#160;be&#160;subject&#160;to&#160;disciplinary&#160;actions&#160;such&#160;as&#160;dismissal.
+        </p>
+        <p style="position:absolute;top:390px;left:126px;white-space:nowrap" class="ft40">
+            <b>GENERAL&#160;CONDITIONS&#160;OF&#160;SERVICE</b>
+        </p>
+        <p style="position:absolute;top:430px;left:81px;white-space:nowrap" class="ft44">
+            You&#160;&#160;shall&#160;&#160;be&#160;&#160;subject&#160;&#160;to&#160;&#160;such&#160;&#160;general&#160;&#160;conditions&#160;&#160;of&#160;&#160;service&#160;&#160;and&#160;&#160;regulations &#160;as&#160;&#160;will&#160;&#160;be&#160;&#160;determined&#160;&#160;by&#160;&#160;the&#160;<br />Management.&#160;You&#160;also&#160;agree&#160;by&#160;signing&#160;this&#160;employment&#160;contract that&#160;you&#160;will&#160;be&#160;bound&#160;by&#160;and&#160;adhere&#160;to&#160;<br />the&#160;&#160;company's&#160;&#160;employee&#160;&#160;handbook&#160;&#160;and&#160;&#160;code&#160;&#160;of&#160;&#160;conduct&#160;&#160;(as&#160;&#160;the&#160;&#160;same&#160;&#160;may&#160;&#160;be&#160;&#160;reviewed&#160;&#160;by&#160;&#160;management&#160;<br />from&#160;time&#160;to&#160;time).
+        </p>
+        <p style="position:absolute;top:564px;left:81px;white-space:nowrap" class="ft44">
+            Please&#160;con&#160;rm&#160;your&#160;acceptance&#160;of&#160;this&#160;contract&#160;by&#160;signing&#160;in&#160;the&#160;space&#160;provided&#160;below&#160;and&#160;returning the&#160;<br />duplicate&#160;copy&#160;to&#160;the&#160;undersigned&#160;within&#160;a&#160;week&#160;of&#160;receiving&#160;this&#160;contract.
+        </p>
+        <p style="position:absolute;top:625px;left:81px;white-space:nowrap" class="ft41">
+            We&#160;wish&#160;you&#160;a&#160;ful&#160;lling&#160;career&#160;with&#160;<b>Ut&#160;tellus.&#160;Nulla&#160;ut&#160;erat&#160;id&#160;mauris&#160;vulputate&#160;elementum.</b>.
+        </p>
+        <p style="position:absolute;top:665px;left:81px;white-space:nowrap" class="ft41">Yours&#160;sincerely,</p>
+        <p style="position:absolute;top:706px;left:81px;white-space:nowrap" class="ft41"> </p>
+        <p style="position:absolute;top:746px;left:81px;white-space:nowrap" class="ft40">
+            <b>__________________________</b>
+        </p>
+        <p style="position:absolute;top:787px;left:81px;white-space:nowrap" class="ft40"><b>Elizabeth&#160;McGuire</b>
+        </p>
+        <p style="position:absolute;top:827px;left:81px;white-space:nowrap" class="ft41">HR&#160;Director</p>
+        <p style="position:absolute;top:900px;left:81px;white-space:nowrap" class="ft41">
+            I&#160;hereby&#160;accept&#160;this&#160;offer&#160;of&#160;employment&#160;and&#160;I&#160;promise&#160;to&#160;abide&#160;by&#160;the&#160;above&#160;terms&#160;and&#160;conditions.
+        </p>
+        <p style="position:absolute;top:941px;left:81px;white-space:nowrap" class="ft41">
+            Full&#160;Name&#160;and&#160;Signature:<b>&#160;_________________________________________</b>
+
+        </p>
+        <div style="position:relative;left: 15%;bottom: 15%;">
+            <a class="button" href="#" role="button">
+                <span>Termination</span>
+                <div class="icon">
+                    <i class="fa fa-remove"></i>
+                    <i class="fa fa-check"></i>
+                </div>
+            </a>
+        </div>
+
+
+
+        <p style="position:absolute;top:7px;left:883px;white-space:nowrap" class="ft43">3</p>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
+    <script>
+        // ---------Responsive-navbar-active-animation-----------
+        function test() {
+            var tabsNewAnim = $('#navbarSupportedContent');
+            var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+            var activeItemNewAnim = tabsNewAnim.find('.active');
+            var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+            var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+            var itemPosNewAnimTop = activeItemNewAnim.position();
+            var itemPosNewAnimLeft = activeItemNewAnim.position();
+            $(".hori-selector").css({
+                "top": itemPosNewAnimTop.top + "px",
+                "left": itemPosNewAnimLeft.left + "px",
+                "height": activeWidthNewAnimHeight + "px",
+                "width": activeWidthNewAnimWidth + "px"
+            });
+            $("#navbarSupportedContent").on("click", "li", function (e) {
+                $('#navbarSupportedContent ul li').removeClass("active");
+                $(this).addClass('active');
+                var activeWidthNewAnimHeight = $(this).innerHeight();
+                var activeWidthNewAnimWidth = $(this).innerWidth();
+                var itemPosNewAnimTop = $(this).position();
+                var itemPosNewAnimLeft = $(this).position();
+                $(".hori-selector").css({
+                    "top": itemPosNewAnimTop.top + "px",
+                    "left": itemPosNewAnimLeft.left + "px",
+                    "height": activeWidthNewAnimHeight + "px",
+                    "width": activeWidthNewAnimWidth + "px"
+                });
+            });
+        }
+        $(document).ready(function () {
+            setTimeout(function () { test(); });
+        });
+        $(window).on('resize', function () {
+            setTimeout(function () { test(); }, 500);
+        });
+        $(".navbar-toggler").click(function () {
+            setTimeout(function () { test(); });
+        });
+    </script>
+    <script type="text/javascript"
+        src="d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_id_d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+
+
+</body>
+
+</html>

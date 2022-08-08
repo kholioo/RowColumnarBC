@@ -1,0 +1,610 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
+  style.
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    body {
+    font-family: 'Roboto', sans-serif;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    i {
+    margin-right: 10px;
+    }
+    /*----------multi-level-accordian-menu------------*/
+    .navbar-logo {
+    padding: 15px;
+    color: #fff;
+    }
+    .navbar-mainbg {
+    background-color: #b9a754;
+    padding: 0px;
+    }
+    #navbarSupportedContent {
+    overflow: hidden;
+    position: relative;
+    }
+    #navbarSupportedContent ul {
+    padding: 0px;
+    margin: 0px;
+    }
+    #navbarSupportedContent ul li a i {
+    margin-right: 10px;
+    }
+    #navbarSupportedContent li {
+    list-style-type: none;
+    float: left;
+    }
+    #navbarSupportedContent ul li a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    }
+    #navbarSupportedContent>ul>li.active>a {
+    color: #b9a754;
+    background-color: transparent;
+    transition: all 0.7s;
+    }
+    #navbarSupportedContent a:not(:only-child):after {
+    content: "\f105";
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    transition: 0.5s;
+    }
+    #navbarSupportedContent .active>a:not(:only-child):after {
+    transform: rotate(90deg);
+    }
+    .hori-selector {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 10px;
+    }
+    .hori-selector .right,
+    .hori-selector .left {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    bottom: 10px;
+    }
+    .hori-selector .right {
+    right: -25px;
+    }
+    .hori-selector .left {
+    left: -25px;
+    }
+    .hori-selector .right:before,
+    .hori-selector .left:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #b9a754;
+    }
+    .hori-selector .right:before {
+    bottom: 0;
+    right: -25px;
+    }
+    .hori-selector .left:before {
+    bottom: 0;
+    left: -25px;
+    }
+    @media (max-width: 991px) {
+    #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+    }
+    .hori-selector {
+    margin-top: 0px;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    }
+    .hori-selector .left,
+    .hori-selector .right {
+    right: 10px;
+    }
+    .hori-selector .left {
+    top: -25px;
+    left: auto;
+    }
+    .hori-selector .right {
+    bottom: -25px;
+    }
+    .hori-selector .left:before {
+    left: -25px;
+    top: -25px;
+    }
+    .hori-selector .right:before {
+    bottom: -25px;
+    left: -25px;
+    }
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft10 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft11 {
+    font-size: 33px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft12 {
+    font-size: 21px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft13 {
+    font-size: 12px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft14 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft15 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft20 {
+    font-size: 21px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft21 {
+    font-size: 12px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft22 {
+    font-size: 12px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft23 {
+    font-size: 12px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft24 {
+    font-size: 12px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft25 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft26 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+
+  style.
+   html,
+   body {
+   height: 100%;
+   }
+   .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      }
+   .button {
+     min-width: 300px;
+     min-height: 60px;
+     font-family: 'Nunito', sans-serif;
+     font-size: 22px;
+     text-transform: uppercase;
+     letter-spacing: 1.3px;
+     font-weight: 700;
+     color: #313133;
+     background: #4FD1C5;
+     background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+     border: none;
+     border-radius: 1000px;
+     box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+     transition: all 0.3s ease-in-out 0s;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     padding: 10px;
+       }
+   button::before {
+      content: '';
+      border-radius: 1000px;
+      min-width: calc(300px + 12px);
+      min-height: calc(60px + 12px);
+      border: 6px solid #00FFCB;
+      box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all .3s ease-in-out 0s;
+          }
+   .button:hover,
+   .button:focus {
+     color: #313133;
+     transform: translateY(-6px);
+     }
+    button:hover::before,
+    button:focus::before {
+      opacity: 1;
+       }
+   button::after {
+     content: '';
+     width: 30px;
+     height: 30px;
+     border-radius: 100%;
+     border: 6px solid #00FFCB;
+     position: absolute;
+     z-index: -1;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     animation: ring 1.5s infinite;
+      }
+   button:hover::after,
+   button:focus::after {
+     animation: none;
+     display: none;
+     }
+   @keyframes ring {
+    0% {
+     width: 30px;
+     height: 30px;
+     opacity: 1;
+     }
+    100% {
+     width: 300px;
+     height: 300px;
+     opacity: 0;
+     }
+     }  
+nav.navbar.navbar-expand-lg.navbar-mainbg
+  a.navbar-brand.navbar-logo(href='#') BlockCenter
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    i.fas.fa-bars.text-white
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      .hori-selector
+        .left
+        .right
+      li.nav-item
+        a.nav-link(href='home')
+          i.fas.fa-tachometer-alt
+            svg.bi.bi-file-person(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z')
+              path(fill-rule='evenodd' d='M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+          | Identification
+      li.nav-item
+        a.nav-link(href='id')
+          i.far.fa-address-book
+            svg.bi.bi-cash(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z')
+              path(d='M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z')
+          | Money
+      li.nav-item
+        a.nav-link(href='estate')
+          i.far.fa-clone
+            svg.bi.bi-house-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+              path(fill-rule='evenodd' d='M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z')
+          | Real Estates
+      li.nav-item.active
+        a.nav-link(href='contract')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Contracts
+      li.nav-item
+        a.nav-link(href='government')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Governmental services      
+      li.nav-item
+        a.nav-link(href='car')
+          i.fa.fa-car
+          | My Car
+mixin content( releasedate,lenderId, lendername, lenderaddress, lenderbankname, borrowername, borroweraddress, borrowerbankname, borrowerId, amount, pay, endDate, benefit, guarantee)           
+ #page1-div(style='position:relative;left: 15%; width:892px;height:1262px;')
+  img(width='892' height='1262' src='https://bl3302files.storage.live.com/y4mnV9AdxSTgX5akM-ForNK_8TM6LJRSRII5ViLISdkKwhzaqhJy7T8jBgG1LpB9Lw0oYsmXJMJFgSeu4KHFV2T6enQjTaHROyvF-OTVB0oZyFAgZcSibHvQwG7PKBdaP6rZ4d13zJXXfw-NlSV33gkadt9NP1hTBO3pYW6CEkLsjh_SdJ7iExtoW3U-lXpJoU_?width=892&height=1263&cropmode=none' alt='background image')
+  p.ft10(style='position:absolute;top:52px;left:757px;white-space:nowrap')=releasedate
+  p.ft11(style='position:absolute;top:75px;left:189px;white-space:nowrap')
+    b Free Loan Agreement
+  p.ft12(style='position:absolute;top:174px;left:65px;white-space:nowrap')
+    b Borrower&apos;s&nbsp;Information
+  p.ft13(style='position:absolute;top:233px;left:452px;white-space:nowrap')
+    b Email
+  p.ft10(style='position:absolute;top:256px;left:452px;white-space:nowrap') jrkorson@example.com
+  p.ft13(style='position:absolute;top:235px;left:65px;white-space:nowrap')
+    b Name
+  p.ft10(style='position:absolute;top:259px;left:65px;white-space:nowrap')=borrowername
+  p.ft13(style='position:absolute;top:292px;left:65px;white-space:nowrap')
+    b Address
+  p.ft10(style='position:absolute;top:316px;left:65px;white-space:nowrap')=borroweraddress
+    | 
+  p.ft10(style='position:absolute;top:334px;left:65px;white-space:nowrap') 
+  p.ft10(style='position:absolute;top:352px;left:65px;white-space:nowrap') 
+  p.ft13(style='position:absolute;top:304px;left:452px;white-space:nowrap')
+    b ID
+  p.ft10(style='position:absolute;top:327px;left:452px;white-space:nowrap')=borrowerId
+  p.ft13(style='position:absolute;top:373px;left:452px;white-space:nowrap')
+    b Bank Name
+  p.ft10(style='position:absolute;top:397px;left:452px;white-space:nowrap')=borrowerbankname
+  p.ft13(style='position:absolute;top:388px;left:65px;white-space:nowrap')
+    b References
+  p.ft13(style='position:absolute;top:419px;left:116px;white-space:nowrap')
+    b Full&nbsp;Name
+  p.ft13(style='position:absolute;top:419px;left:277px;white-space:nowrap')
+    b Phone&nbsp;Number
+  p.ft10(style='position:absolute;top:452px;left:73px;white-space:nowrap') Etiam&nbsp;at
+  p.ft10(style='position:absolute;top:452px;left:250px;white-space:nowrap') Mauris&nbsp;bibendum
+  p.ft10(style='position:absolute;top:485px;left:73px;white-space:nowrap') Mauris&nbsp;bibendum
+  p.ft10(style='position:absolute;top:485px;left:250px;white-space:nowrap') Auctor&nbsp;ac&nbsp;sem
+  p.ft10(style='position:absolute;top:517px;left:73px;white-space:nowrap') Condimentum&nbsp;arcu
+  p.ft10(style='position:absolute;top:517px;left:250px;white-space:nowrap') Arcu&nbsp;mollis
+  p.ft10(style='position:absolute;top:550px;left:73px;white-space:nowrap') Etiam&nbsp;at
+  p.ft10(style='position:absolute;top:550px;left:250px;white-space:nowrap')
+    | Pellentesque&nbsp;in&nbsp;magna
+  p.ft10(style='position:absolute;top:583px;left:73px;white-space:nowrap') Consectetur&nbsp;adipiscing
+  p.ft10(style='position:absolute;top:583px;left:250px;white-space:nowrap') Lorem&nbsp;ipsum
+  p.ft10(style='position:absolute;top:615px;left:73px;white-space:nowrap') Lacinia&nbsp;ac
+  p.ft10(style='position:absolute;top:615px;left:250px;white-space:nowrap') Purus&nbsp;bibendum
+  p.ft13(style='position:absolute;top:442px;left:452px;white-space:nowrap')
+    b Security/Collateral&nbsp;items
+  p.ft10(style='position:absolute;top:466px;left:452px;white-space:nowrap')
+    | Praesent&nbsp;blandit.&nbsp;N
+  p.ft12(style='position:absolute;top:696px;left:65px;white-space:nowrap')
+    b Lender&apos;s&nbsp;Information
+  p.ft13(style='position:absolute;top:756px;left:65px;white-space:nowrap')
+    b Name
+  p.ft10(style='position:absolute;top:779px;left:65px;white-space:nowrap')=lendername
+  p.ft13(style='position:absolute;top:756px;left:452px;white-space:nowrap')
+    b Address
+  p.ft10(style='position:absolute;top:779px;left:452px;white-space:nowrap')=lenderaddress
+    | 
+  p.ft10(style='position:absolute;top:797px;left:452px;white-space:nowrap') 
+  p.ft10(style='position:absolute;top:815px;left:452px;white-space:nowrap') 
+  p.ft13(style='position:absolute;top:813px;left:65px;white-space:nowrap')
+    b ID
+  p.ft10(style='position:absolute;top:837px;left:65px;white-space:nowrap')=borrowerId
+  p.ft12(style='position:absolute;top:910px;left:65px;white-space:nowrap')
+    b Loan&nbsp;Information
+  p.ft13(style='position:absolute;top:964px;left:452px;white-space:nowrap')
+    b Loan&nbsp;Amount
+  p.ft10(style='position:absolute;top:987px;left:452px;white-space:nowrap')=amount
+  p.ft13(style='position:absolute;top:965px;left:65px;white-space:nowrap')
+    b Start&nbsp;Date&nbsp;-&nbsp;First&nbsp;Payment
+  p.ft10(style='position:absolute;top:988px;left:65px;white-space:nowrap')=releasedate
+  p.ft13(style='position:absolute;top:1021px;left:452px;white-space:nowrap')
+    b Interest&nbsp;Rate
+  p.ft10(style='position:absolute;top:1045px;left:452px;white-space:nowrap')-benefit
+  p.ft13(style='position:absolute;top:1022px;left:65px;white-space:nowrap')
+    b End&nbsp;Date&nbsp;-&nbsp;Last&nbsp;Payment
+  p.ft10(style='position:absolute;top:1046px;left:65px;white-space:nowrap')=endDaate
+  p.ft13(style='position:absolute;top:1078px;left:452px;white-space:nowrap')
+    b Late&nbsp;Fee
+  p.ft10(style='position:absolute;top:1102px;left:452px;white-space:nowrap')=guarantee
+  p.ft13(style='position:absolute;top:1083px;left:65px;white-space:nowrap')
+    b Payment&nbsp;Method
+  p.ft10(style='position:absolute;top:1116px;left:76px;white-space:nowrap') banks
+  p.ft14(style='position:absolute;top:1220px;left:52px;white-space:nowrap')
+    a(href='https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203464871665059&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer') Create&nbsp;your&nbsp;own&nbsp;automated&nbsp;PDFs&nbsp;with&nbsp;JotForm&nbsp;PDF&nbsp;Editor
+  p.ft15(style='position:absolute;top:1223px;left:832px;white-space:nowrap') 1
+ #page2-div(style='position:relative;left: 15%; width:892px;height:1262px;')
+  img(width='892' height='1262' src='https://bl3302files.storage.live.com/y4m7eJh-NbkSeeOGwklpDhwW7xWEVKC6vt9oW39hYgSI7WoJzLNwJ9B-LMNRPTdezr3MZW0TTFbpgNUXZ9lRCkKXQsM3AZLuokdcXhztrf39JH_0vM1Nm4Sm3SAzIdfDkvwx40fiPhFvcIV7HJqKyxi-sd9g5hTfFlzth1D4iZqAoZOtTrSKTtIMwfZeJ58W5Ov?width=892&height=1263&cropmode=none' alt='background image')
+  p.ft20(style='position:absolute;top:58px;left:315px;white-space:nowrap')
+    b Terms&nbsp;and&nbsp;Conditions
+  p.ft21(style='position:absolute;top:125px;left:58px;white-space:nowrap')
+    b I.&nbsp;ACKNOWLEDGMENT
+  p.ft22(style='position:absolute;top:161px;left:58px;white-space:nowrap')
+    | The&nbsp;Lender&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sari&nbsp;Letham&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | &nbsp;agrees&nbsp;to&nbsp;lend&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;8,000.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | &nbsp;to&nbsp;the&nbsp;Borrower&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bartel&nbsp;O&apos;Monahan&nbsp;&nbsp;&nbsp;&nbsp;
+    | &nbsp;under
+  p.ft22(style='position:absolute;top:179px;left:58px;white-space:nowrap')
+    | these&nbsp;terms.&nbsp;The&nbsp;Borrower&nbsp;acknowledges&nbsp;the&nbsp;loan&nbsp;amount&nbsp;defined&nbsp;above.
+  p.ft21(style='position:absolute;top:215px;left:58px;white-space:nowrap')
+    b II.&nbsp;PAYMENT&nbsp;PLAN
+  p.ft22(style='position:absolute;top:233px;left:58px;white-space:nowrap')
+    | The&nbsp;payment&nbsp;due&nbsp;date&nbsp;is&nbsp;every&nbsp;15th&nbsp;of&nbsp;the&nbsp;month.&nbsp;Payments&nbsp;will&nbsp;be&nbsp;made&nbsp;via&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | .
+  p.ft22(style='position:absolute;top:269px;left:58px;white-space:nowrap')
+    | The&nbsp;first&nbsp;payment&nbsp;will&nbsp;be&nbsp;on&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thursday,&nbsp;October&nbsp;17,&nbsp;1957&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | &nbsp;and&nbsp;continue&nbsp;monthly&nbsp;until&nbsp;the&nbsp;last&nbsp;payment
+  p.ft22(style='position:absolute;top:287px;left:58px;white-space:nowrap')
+    | which&nbsp;is&nbsp;on&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saturday,&nbsp;November&nbsp;7,&nbsp;2015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | .
+  p.ft21(style='position:absolute;top:323px;left:58px;white-space:nowrap')
+    b III.&nbsp;PROMISE&nbsp;TO&nbsp;PAY
+  p.ft22(style='position:absolute;top:341px;left:58px;white-space:nowrap')
+    | The&nbsp;Borrower&nbsp;promises&nbsp;to&nbsp;pay&nbsp;the&nbsp;Lender&nbsp;
+    b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;8,000.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | &nbsp;and&nbsp;interest&nbsp;within&nbsp;12&nbsp;months.
+  p.ft21(style='position:absolute;top:377px;left:58px;white-space:nowrap')
+    b IV.&nbsp;LATE&nbsp;CHARGES
+  p.ft22(style='position:absolute;top:395px;left:58px;white-space:nowrap')
+    | Late&nbsp;charges&nbsp;of&nbsp;5%&nbsp;will&nbsp;be&nbsp;applied&nbsp;for&nbsp;any&nbsp;late&nbsp;payments.&nbsp;5&nbsp;days&nbsp;from&nbsp;the&nbsp;due&nbsp;date&nbsp;will&nbsp;be&nbsp;considered&nbsp;as&nbsp;late.
+  p.ft21(style='position:absolute;top:431px;left:58px;white-space:nowrap')
+    b V.&nbsp;DEFAULT
+  p.ft22(style='position:absolute;top:449px;left:58px;white-space:nowrap')
+    | The&nbsp;following&nbsp;instances&nbsp;indicate&nbsp;default&nbsp;of&nbsp;this&nbsp;Loan&nbsp;Agreement,&nbsp;which&nbsp;means&nbsp;the&nbsp;remaining&nbsp;balance&nbsp;should&nbsp;be&nbsp;paid
+  p.ft22(style='position:absolute;top:467px;left:58px;white-space:nowrap') immediately:
+  p.ft22(style='position:absolute;top:485px;left:58px;white-space:nowrap')
+    | (a)&nbsp;If&nbsp;the&nbsp;Borrower&nbsp;fails&nbsp;to&nbsp;pay&nbsp;in&nbsp;due&nbsp;date;
+  p.ft22(style='position:absolute;top:503px;left:58px;white-space:nowrap')
+    | (b)&nbsp;Borrower&apos;s&nbsp;inability&nbsp;to&nbsp;pay&nbsp;debts;
+  p.ft22(style='position:absolute;top:521px;left:58px;white-space:nowrap')
+    | (c)&nbsp;The&nbsp;Borrower&nbsp;is&nbsp;dead&nbsp;or&nbsp;incompetent;
+  p.ft22(style='position:absolute;top:539px;left:58px;white-space:nowrap')
+    | (d)&nbsp;The&nbsp;Borrower&nbsp;is&nbsp;filing&nbsp;bankruptcy;
+  p.ft21(style='position:absolute;top:575px;left:58px;white-space:nowrap')
+    b VI.&nbsp;SECURITY&nbsp;/&nbsp;COLLATERAL
+  p.ft22(style='position:absolute;top:593px;left:58px;white-space:nowrap')
+    | For&nbsp;security&nbsp;and&nbsp;protection&nbsp;of&nbsp;the&nbsp;Lender,&nbsp;the&nbsp;Borrower&nbsp;gives&nbsp;the&nbsp;following&nbsp;security&nbsp;interest&nbsp;or&nbsp;mortgage:&nbsp;
+    b Praesent&nbsp;
+  p.ft21(style='position:absolute;top:611px;left:58px;white-space:nowrap')
+    b blandit.&nbsp;N
+    | .
+  p.ft21(style='position:absolute;top:647px;left:58px;white-space:nowrap')
+    b VII.&nbsp;AMENDMENT
+  p.ft22(style='position:absolute;top:665px;left:58px;white-space:nowrap')
+    | This&nbsp;loan&nbsp;agreement&nbsp;can&nbsp;only&nbsp;be&nbsp;changed&nbsp;or&nbsp;modified&nbsp;through&nbsp;the&nbsp;written&nbsp;consent&nbsp;of&nbsp;both&nbsp;parties.
+  p.ft21(style='position:absolute;top:701px;left:58px;white-space:nowrap')
+    b VIII.&nbsp;GOVERNING&nbsp;LAW
+  p.ft22(style='position:absolute;top:719px;left:58px;white-space:nowrap')
+    | This&nbsp;agreement&nbsp;shall&nbsp;be&nbsp;governed&nbsp;under&nbsp;the&nbsp;laws&nbsp;of&nbsp;the&nbsp;
+    b United&nbsp;States
+    | .
+  p.ft21(style='position:absolute;top:755px;left:58px;white-space:nowrap')
+    b IX.&nbsp;OWNERSHIP
+  p.ft22(style='position:absolute;top:773px;left:58px;white-space:nowrap')
+    | This&nbsp;Loan&nbsp;Agreement&nbsp;is&nbsp;not&nbsp;transferable.&nbsp;A&nbsp;written&nbsp;content&nbsp;of&nbsp;both&nbsp;parties&nbsp;is&nbsp;needed&nbsp;in&nbsp;order&nbsp;to&nbsp;transfer&nbsp;this
+  p.ft22(style='position:absolute;top:791px;left:58px;white-space:nowrap') Agreement.
+  p.ft22(style='position:absolute;top:827px;left:58px;white-space:nowrap') &nbsp;
+  p.ft23(style='position:absolute;top:916px;left:58px;white-space:nowrap')
+    b Date&nbsp;of&nbsp;Execution&nbsp;of&nbsp;Both&nbsp;Parties
+  p.ft24(style='position:absolute;top:916px;left:380px;white-space:nowrap') November&nbsp;7,&nbsp;2015
+  p.ft23(style='position:absolute;top:956px;left:517px;white-space:nowrap')
+    b Lender&apos;s&nbsp;Signature
+  p.ft23(style='position:absolute;top:956px;left:58px;white-space:nowrap')
+    b Borrower&apos;s&nbsp;Signature
+  p.ft25(style='position:absolute;top:1220px;left:52px;white-space:nowrap')
+    a(href='https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203464871665059&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer') Create&nbsp;your&nbsp;own&nbsp;automated&nbsp;PDFs&nbsp;with&nbsp;JotForm&nbsp;PDF&nbsp;Editor
+  p.ft26(style='position:absolute;top:1223px;left:832px;white-space:nowrap') 2
+
+mixin button
+  .wrap
+   form(action='/createloancontract' method='GET')
+     button.button(type='submit') Create Contract
+
+-var i = 0                    
+while i<larr.length 
+   - var x = i++
+   - var l= larr[x]
+   - var  lenderId=l.lenderId  ; 
+   - var  lendername= l.lendername ; 
+   - var  lenderaddress= l.lenderaddress ; 
+   - var  lenderbankname= l.lenderbankname ; 
+   - var  borrowername= l.borrowername ; 
+   - var  borroweraddress= l.borroweraddress ; 
+   - var  borrowerbankname= l.borrowerbankname ; 
+   - var  borrowerId= l.borrowerId ; 
+   - var  amount= l.amount ; 
+   - var  pay=  l.pay; 
+   - var  endDate=l.endDate  ; 
+   - var  benefit= l.benefit ; 
+   - var guarantee = l.guarantee ;
+   - var releasedate = l.releaseDate 
+   +content(releasedate,lenderId, lendername, lenderaddress, lenderbankname, borrowername, borroweraddress, borrowerbankname, borrowerId, amount, pay, endDate, benefit, guarantee)
+
+-var length = larr.length
+case length
+    when 0
+      +button
+
+ 
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js' integrity='sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s' crossorigin='anonymous')
+script(src='//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js')
+script.
+    // ---------Responsive-navbar-active-animation-----------
+    function test() {
+    var tabsNewAnim = $('#navbarSupportedContent');
+    var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+    var activeItemNewAnim = tabsNewAnim.find('.active');
+    var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+    var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+    var itemPosNewAnimTop = activeItemNewAnim.position();
+    var itemPosNewAnimLeft = activeItemNewAnim.position();
+    $(".hori-selector").css({
+    "top": itemPosNewAnimTop.top + "px",
+    "left": itemPosNewAnimLeft.left + "px",
+    "height": activeWidthNewAnimHeight + "px",
+    "width": activeWidthNewAnimWidth + "px"
+    });
+    $("#navbarSupportedContent").on("click", "li", function (e) {
+    $('#navbarSupportedContent ul li').removeClass("active");
+    $(this).addClass('active');
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+    "top": itemPosNewAnimTop.top + "px",
+    "left": itemPosNewAnimLeft.left + "px",
+    "height": activeWidthNewAnimHeight + "px",
+    "width": activeWidthNewAnimWidth + "px"
+    });
+    });
+    }
+    $(document).ready(function () {
+    setTimeout(function () { test(); });
+    });
+    $(window).on('resize', function () {
+    setTimeout(function () { test(); }, 500);
+    });
+    $(".navbar-toggler").click(function () {
+    setTimeout(function () { test(); });
+    });
+script(type='text/javascript' src='d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_id_d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_files/wz_jsgraphics.js')

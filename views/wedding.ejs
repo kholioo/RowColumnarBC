@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+
+        /*----------multi-level-accordian-menu------------*/
+        .navbar-logo {
+            padding: 15px;
+            color: #fff;
+        }
+
+        .navbar-mainbg {
+            background-color: #b9a754;
+            padding: 0px;
+        }
+
+        #navbarSupportedContent {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #navbarSupportedContent ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #navbarSupportedContent ul li a i {
+            margin-right: 10px;
+        }
+
+        #navbarSupportedContent li {
+            list-style-type: none;
+            float: left;
+        }
+
+        #navbarSupportedContent ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 20px 20px;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        #navbarSupportedContent>ul>li.active>a {
+            color: #b9a754;
+            background-color: transparent;
+            transition: all 0.7s;
+        }
+
+        #navbarSupportedContent a:not(:only-child):after {
+            content: "\f105";
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 14px;
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            padding-right: 3px;
+            vertical-align: middle;
+            font-weight: 900;
+            transition: 0.5s;
+        }
+
+        #navbarSupportedContent .active>a:not(:only-child):after {
+            transform: rotate(90deg);
+        }
+
+        .hori-selector {
+            display: inline-block;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background-color: #fff;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            margin-top: 10px;
+        }
+
+        .hori-selector .right,
+        .hori-selector .left {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            bottom: 10px;
+        }
+
+        .hori-selector .right {
+            right: -25px;
+        }
+
+        .hori-selector .left {
+            left: -25px;
+        }
+
+        .hori-selector .right:before,
+        .hori-selector .left:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #b9a754;
+        }
+
+        .hori-selector .right:before {
+            bottom: 0;
+            right: -25px;
+        }
+
+        .hori-selector .left:before {
+            bottom: 0;
+            left: -25px;
+        }
+
+
+
+
+        @media (max-width: 991px) {
+            #navbarSupportedContent ul li a {
+                padding: 12px 30px;
+            }
+
+            .hori-selector {
+                margin-top: 0px;
+                margin-left: 10px;
+                border-radius: 0;
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+            }
+
+            .hori-selector .left,
+            .hori-selector .right {
+                right: 10px;
+            }
+
+            .hori-selector .left {
+                top: -25px;
+                left: auto;
+            }
+
+            .hori-selector .right {
+                bottom: -25px;
+            }
+
+            .hori-selector .left:before {
+                left: -25px;
+                top: -25px;
+            }
+
+            .hori-selector .right:before {
+                bottom: -25px;
+                left: -25px;
+            }
+        }
+    </style>
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft10 {
+            font-size: 33px;
+            font-family: Times;
+            color: #cf7894;
+        }
+
+        .ft11 {
+            font-size: 14px;
+            font-family: Times;
+            color: #ffffff;
+        }
+
+        .ft12 {
+            font-size: 15px;
+            font-family: Times;
+            color: #cf7894;
+        }
+
+        .ft13 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft14 {
+            font-size: 13px;
+            font-family: Times;
+            color: #292e53;
+        }
+
+        .ft15 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft16 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft17 {
+            font-size: 11px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft18 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft19 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #000000;
+        }
+    </style>
+    <style type="text/css">
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ft20 {
+            font-size: 15px;
+            font-family: Times;
+            color: #cf7894;
+        }
+
+        .ft21 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft22 {
+            font-size: 23px;
+            font-family: Times;
+            color: #050933;
+        }
+
+        .ft23 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft24 {
+            font-size: 14px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft25 {
+            font-size: 12px;
+            font-family: Times;
+            color: #828282;
+        }
+
+        .ft26 {
+            font-size: 11px;
+            font-family: Times;
+            color: #000000;
+        }
+
+        .ft27 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: Times;
+            color: #000000;
+        }
+    </style>
+
+    <style>
+        /* Reset */
+        @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+        /* Main Styles */
+        .button {
+            display: block;
+            background-color: #c0392b;
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            margin: auto;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button span,
+        .button .icon {
+            display: block;
+            height: 100%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+        }
+
+        .button span {
+            width: 72%;
+            line-height: inherit;
+            font-size: 22px;
+            text-transform: uppercase;
+            left: 0;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button span:after {
+            content: '';
+            background-color: #a53125;
+            width: 2px;
+            height: 70%;
+            position: absolute;
+            top: 15%;
+            right: -1px;
+        }
+
+        .button .icon {
+            width: 28%;
+            right: 0;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        }
+
+        .button .icon .fa {
+            font-size: 30px;
+            vertical-align: middle;
+            -webkit-transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+        }
+
+        .button .icon .fa-remove {
+            height: 36px;
+        }
+
+        .button .icon .fa-check {
+            display: none;
+        }
+
+        .button.success span,
+        .button:hover span {
+            left: -72%;
+            opacity: 0;
+        }
+
+        .button.success .icon,
+        .button:hover .icon {
+            width: 100%;
+        }
+
+        .button.success .icon .fa,
+        .button:hover .icon .fa {
+            font-size: 45px;
+        }
+
+        .button.success {
+            background-color: #27ae60;
+        }
+
+        .button.success .icon .fa-remove {
+            display: none;
+        }
+
+        .button.success .icon .fa-check {
+            display: inline-block;
+        }
+
+        .button:hover {
+            opacity: .9;
+        }
+
+        .button:hover .icon .fa-remove {
+            height: 46px;
+        }
+
+        .button:active {
+            opacity: 1;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="#">BlockCenter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home">
+                        <i class="fas fa-tachometer-alt">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+
+                                <path fill-rule="evenodd"
+                                    d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </i>Identification
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="id"><i class="far fa-address-book">
+
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z" />
+                                <path
+                                    d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                            </svg></i>Money
+
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estate">
+                        <i class="far fa-clone">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+
+                            </svg></i>Real Estates</a>
+                </li>
+                <li class="nav-item active ">
+                    <a class="nav-link" href="contract" href="id.ejs"><i class="far fa-calendar-alt"><svg width="1em"
+                                height="1em" viewBox="0 0 16 16" class="bi bi-file-text" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z" />
+                                <path fill-rule="evenodd"
+                                    d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+                            </svg></i>Contracts</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="government"><i class="far fa-chart-bar"><svg width="1em" height="1em"
+                                viewBox="0 0 16 16" class="bi bi-building" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                                <path
+                                    d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+                            </svg></i>Governmental
+                        Services</a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="car"> <i class="fa fa-car"></i>My Car</a>
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div id="page1-div" style="position:relative;left: 15%; width:892px;height:1262px;">
+        <img src="https://bl3302files.storage.live.com/y4m0FlLqrHeXqDHREDbojhm5RKodyNIerLoZQoQlL3ZkU-763nothkxJ7rWX6idf2tgv8v_YFdS9cJXg7cgxNUZ7kQYN9eHaS5d6_lyTI6E17KYAaMaQNck0A87xWQhobA3rj83BQcdr1rXS8gtdejDM1MDEZ-GEyW3rIawYVDv-7gN1j8JULYkcM0Xeecjd-S7?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:125px;left:155px;white-space:nowrap" class="ft10">
+            WEDDING&#160;CEREMONY&#160;CONTRACT</p>
+        <p style="position:absolute;top:226px;left:65px;white-space:nowrap" class="ft11"><b>BRIDE&#160;INFORMATION</b>
+        </p>
+        <p style="position:absolute;top:226px;left:459px;white-space:nowrap" class="ft11"><b>GROOM&#160;INFORMATION</b>
+        </p>
+        <p style="position:absolute;top:268px;left:65px;white-space:nowrap" class="ft12"><b>Full&#160;Name</b></p>
+        <p style="position:absolute;top:293px;left:65px;white-space:nowrap" class="ft13">Adan&#160;Ginn</p>
+        <p style="position:absolute;top:329px;left:65px;white-space:nowrap" class="ft12"><b>Address</b></p>
+        <p style="position:absolute;top:354px;left:65px;white-space:nowrap" class="ft18">
+            407&#160;Anniversary&#160;Drive,&#160;2&#160;Esker&#160;Trail<br />Santa&#160;Barbara,&#160;California,&#160;93150<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:430px;left:65px;white-space:nowrap" class="ft12"><b>Phone&#160;Number</b></p>
+        <p style="position:absolute;top:455px;left:65px;white-space:nowrap" class="ft13">+35&#160;(62)&#160;862-1661</p>
+        <p style="position:absolute;top:491px;left:65px;white-space:nowrap" class="ft12"><b>E-mail</b></p>
+        <p style="position:absolute;top:516px;left:65px;white-space:nowrap" class="ft13">alhajj@example.com</p>
+        <p style="position:absolute;top:268px;left:459px;white-space:nowrap" class="ft12"><b>Full&#160;Name</b></p>
+        <p style="position:absolute;top:293px;left:459px;white-space:nowrap" class="ft13">Adan&#160;Ginn</p>
+        <p style="position:absolute;top:329px;left:459px;white-space:nowrap" class="ft12"><b>Address</b></p>
+        <p style="position:absolute;top:354px;left:459px;white-space:nowrap" class="ft18">
+            407&#160;Anniversary&#160;Drive,&#160;2&#160;Esker&#160;Trail<br />Santa&#160;Barbara,&#160;California,&#160;93150<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:430px;left:459px;white-space:nowrap" class="ft12"><b>Phone&#160;Number</b></p>
+        <p style="position:absolute;top:455px;left:459px;white-space:nowrap" class="ft13">+35&#160;(62)&#160;862-1661
+        </p>
+        <p style="position:absolute;top:491px;left:459px;white-space:nowrap" class="ft12"><b>E-mail</b></p>
+        <p style="position:absolute;top:516px;left:459px;white-space:nowrap" class="ft13">alhajj@example.com</p>
+        <p style="position:absolute;top:636px;left:65px;white-space:nowrap" class="ft11">
+            <b>CEREMONY&#160;INFORMATION</b>
+        </p>
+        <p style="position:absolute;top:636px;left:459px;white-space:nowrap" class="ft11">
+            <b>PAYMENT&#160;INFORMATION</b>
+        </p>
+        <p style="position:absolute;top:679px;left:65px;white-space:nowrap" class="ft12"><b>Venue&#160;Name</b></p>
+        <p style="position:absolute;top:704px;left:65px;white-space:nowrap" class="ft18">
+            In&#160;hac&#160;habitasse&#160;platea&#160;dictumst.&#160;Aliquam&#160;augue<br />quam,&#160;sollicitudin&#160;vitae,&#160;consectetuer&#160;eget,<br />rutrum&#160;at,&#160;lorem.&#160;Integer&#160;tincidunt&#160;ante&#160;vel<br />ipsum.
+        </p>
+        <p style="position:absolute;top:800px;left:65px;white-space:nowrap" class="ft12"><b>Address</b></p>
+        <p style="position:absolute;top:825px;left:65px;white-space:nowrap" class="ft18">
+            407&#160;Anniversary&#160;Drive,&#160;2&#160;Esker&#160;Trail<br />Santa&#160;Barbara,&#160;California,&#160;93150<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:901px;left:65px;white-space:nowrap" class="ft12"><b>Location&#160;Name</b></p>
+        <p style="position:absolute;top:926px;left:65px;white-space:nowrap" class="ft18">
+            In&#160;hac&#160;habitasse&#160;platea&#160;dictumst.&#160;Aliquam&#160;augue<br />quam,&#160;sollicitudin&#160;vitae,&#160;consectetuer&#160;eget,<br />rutrum&#160;at,&#160;lorem.&#160;Integer&#160;tincidunt&#160;ante&#160;vel<br />ipsum.
+        </p>
+        <p style="position:absolute;top:1023px;left:65px;white-space:nowrap" class="ft12">
+            <b>Ceremony&#160;Date&#160;and&#160;Time</b>
+        </p>
+        <p style="position:absolute;top:1048px;left:65px;white-space:nowrap" class="ft13">
+            Aug&#160;15,&#160;1983&#160;17:18</p>
+        <p style="position:absolute;top:1083px;left:65px;white-space:nowrap" class="ft12"><b>Address</b></p>
+        <p style="position:absolute;top:1108px;left:65px;white-space:nowrap" class="ft18">
+            407&#160;Anniversary&#160;Drive,&#160;2&#160;Esker&#160;Trail<br />Santa&#160;Barbara,&#160;California,&#160;93150<br />United&#160;States
+        </p>
+        <p style="position:absolute;top:679px;left:459px;white-space:nowrap" class="ft12"><b>Wedding&#160;Packages</b>
+        </p>
+        <p style="position:absolute;top:713px;left:470px;white-space:nowrap" class="ft13">Option&#160;3</p>
+        <p style="position:absolute;top:757px;left:459px;white-space:nowrap" class="ft12">
+            <b>Payment&#160;Plan&#160;options&#160;</b>
+        </p>
+        <p style="position:absolute;top:791px;left:470px;white-space:nowrap" class="ft13">Option&#160;3</p>
+        <p style="position:absolute;top:848px;left:459px;white-space:nowrap" class="ft12">
+            <b>Pay&#160;Deposit&#160;via&#160;Paypal&#160;now</b>
+        </p>
+        <p style="position:absolute;top:890px;left:468px;white-space:nowrap" class="ft14"><b>Descripti</b></p>
+        <p style="position:absolute;top:908px;left:468px;white-space:nowrap" class="ft14"><b>on</b></p>
+        <p style="position:absolute;top:899px;left:762px;white-space:nowrap" class="ft14"><b>Amount</b></p>
+        <p style="position:absolute;top:951px;left:468px;white-space:nowrap" class="ft19">
+            <b>Soupfoa<br />mcont12<br />oz<br />112con</b>
+        </p>
+        <p style="position:absolute;top:981px;left:769px;white-space:nowrap" class="ft13">$52.00</p>
+        <p style="position:absolute;top:1056px;left:468px;white-space:nowrap" class="ft19">
+            <b>Sparkling<br />Wine&#160;-<br />Rose,<br />Freixenet</b>
+        </p>
+        <p style="position:absolute;top:1086px;left:769px;white-space:nowrap" class="ft13">$81.00</p>
+
+        <p style="position:absolute;top:1209px;left:832px;white-space:nowrap" class="ft17">1</p>
+    </div>
+
+    <div id="page2-div" style="position:relative;;left: 15%;width:892px;height:1262px;">
+        <img src="https://bl3302files.storage.live.com/y4mKuOfcGhoSrPjIJ9ubkwPR756Y6eaI_VNtEWzR05gjLmLcFtrjG219X6L7K_50AUAA5Tb0JHEu_V3smLvNxMS7CGVuCueDV0wGnzlQXyzr6qz6WwIUhzeSzKZKRX-Z2uN4DXJvVqp5gYZZi1btNnbSBF7rFYkbUf1yI-XtTZ3738iqqdCuYb2mUyWkNYINMak?width=892&height=1263&cropmode=none"
+            width="892" height="1263" />
+        <p style="position:absolute;top:86px;left:65px;white-space:nowrap" class="ft20">
+            <b>Reception&#160;Start&#160;Time</b>
+        </p>
+        <p style="position:absolute;top:111px;left:65px;white-space:nowrap" class="ft21">
+            August&#160;15,&#160;1983&#160;17:18</p>
+        <p style="position:absolute;top:114px;left:615px;white-space:nowrap" class="ft21">Dowry</p>
+        <p style="position:absolute;top:110px;left:724px;white-space:nowrap" class="ft22"><b>$133.00</b></p>
+        <p style="position:absolute;top:94px;left:65px;white-space:nowrap" class="ft23">
+            <b>CHANGE&#160;OF&#160;DATE&#160;OR&#160;VENUE</b>
+        </p>
+        <p style="position:absolute;top:135px;left:65px;white-space:nowrap" class="ft27">
+            The&#160;photographer&#160;must&#160;be&#160;noti&#160;ed&#160;immediately&#160;of&#160;any&#160;changes&#160;in&#160;schedule&#160;or&#160;location,&#160;at&#160;least&#160;one&#160;<br />week&#160;prior&#160;to&#160;the&#160;scheduled&#160;date&#160;of&#160;the&#160;event.&#160;Noti&#160;cation&#160;of&#160;any&#160;changes&#160;can&#160;be&#160;made&#160;by&#160;phone&#160;<br />along&#160;with&#160;written&#160;notice&#160;sent&#160;via&#160;email&#160;for&#160;documentation.&#160;If&#160;an&#160;email&#160;is&#160;sent,&#160;a&#160;con&#160;rmation&#160;of&#160;<br />receipt&#160;must&#160;be&#160;in&#160;writing.&#160;It&#160;is&#160;the&#160;client’s&#160;responsibility&#160;to&#160;con&#160;rm&#160;all&#160;arrangements&#160;at&#160;least&#160;7-10&#160;<br />days&#160;prior&#160;to&#160;the&#160;event.&#160;In&#160;the&#160;event&#160;of&#160;the&#160;change&#160;of&#160;address&#160;or&#160;contact&#160;information&#160;(time,&#160;etc.)&#160;as&#160;<br />listed,&#160;you&#160;must&#160;notify&#160;Photographer<i>.</i>
+        </p>
+        <p style="position:absolute;top:276px;left:65px;white-space:nowrap" class="ft23"><b>RETAINER&#160;</b></p>
+        <p style="position:absolute;top:317px;left:65px;white-space:nowrap" class="ft27">
+            A&#160;non-refundable&#160;retainer&#160;fee&#160;of&#160;$200&#160;is&#160;required&#160;to&#160;hold&#160;the&#160;date&#160;of&#160;your&#160;event.&#160;No&#160;date&#160;is&#160;reserved&#160;<br />until&#160;a&#160;retainer&#160;is&#160;received.&#160;The&#160;balance&#160;of&#160;the&#160;complete&#160;package&#160;price&#160;must&#160;be&#160;paid&#160;at&#160;the&#160;date&#160;<br />speci&#160;ed&#160;herein.&#160;If&#160;&#160;nal&#160;payment&#160;is&#160;not&#160;received&#160;as&#160;set&#160;forth&#160;herein,&#160;Photographer<i> </i>reserves&#160;the&#160;right&#160;to&#160;<br />withhold&#160;delivery&#160;of&#160;the&#160;images&#160;and&#160;or&#160;not&#160;attend&#160;the&#160;wedding&#160;until&#160;payment&#160;is&#160;received.&#160;Upon&#160;clients&#160;<br />signature&#160;and&#160;payment&#160;of&#160;retainer&#160;fee,&#160;Photographer&#160;agrees&#160;to&#160;reserve&#160;the&#160;date&#160;and&#160;time&#160;speci&#160;ed.&#160;<br />The&#160;retainer&#160;fee&#160;is&#160;applied&#160;toward&#160;the&#160;&#160;nal&#160;contracted&#160;wedding&#160;package.&#160;
+        </p>
+        <p style="position:absolute;top:459px;left:65px;white-space:nowrap" class="ft23"><b>CANCELLATION&#160;</b></p>
+        <p style="position:absolute;top:499px;left:65px;white-space:nowrap" class="ft27">
+            There&#160;shall&#160;be&#160;NO&#160;refund&#160;of&#160;the&#160;retainer&#160;after&#160;48&#160;hours&#160;from&#160;the&#160;signing&#160;of&#160;the&#160;agreement&#160;due&#160;to&#160;the&#160;<br />reservation&#160;of&#160;the&#160;photography&#160;date.&#160;If&#160;the&#160;event&#160;is&#160;canceled&#160;within&#160;three&#160;months&#160;of&#160;the&#160;date,&#160;the&#160;<br />client&#160;shall&#160;pay&#160;the&#160;balance&#160;of&#160;the&#160;contract&#160;due&#160;to&#160;the&#160;high&#160;probability&#160;that&#160;Photographer&#160;will&#160;not&#160;be&#160;<br />able&#160;to&#160;further&#160;book&#160;that&#160;date.&#160;Once&#160;a&#160;balance&#160;is&#160;paid,&#160;it&#160;is&#160;NON-REFUNDABLE.&#160;Any&#160;other&#160;<br />arrangements&#160;shall&#160;be&#160;discussed&#160;between&#160;the&#160;client&#160;and&#160;Photographer<i>.&#160;</i>All&#160;arrangements&#160;will&#160;be&#160;put&#160;in&#160;<br />writing.&#160;Cancellation&#160;must&#160;be&#160;in&#160;writing&#160;even&#160;if&#160;a&#160;phone&#160;call&#160;was&#160;made&#160;to&#160;inform&#160;Photographer&#160;of&#160;the&#160;<br />cancellation.&#160;The&#160;retainer&#160;fee&#160;will&#160;be&#160;transferable&#160;up&#160;to&#160;365&#160;after&#160;cancellation.&#160;The&#160;client&#160;agrees&#160;to&#160;<br />not&#160;expect&#160;a&#160;new&#160;date&#160;to&#160;automatically&#160;be&#160;available.&#160;The&#160;client&#160;will&#160;be&#160;given&#160;the&#160;chance&#160;to&#160;reschedule&#160;<br />but&#160;cannot&#160;be&#160;pushed&#160;ahead&#160;of&#160;other&#160;reserved&#160;clients.
+        </p>
+        <p style="position:absolute;top:701px;left:65px;white-space:nowrap" class="ft21"> </p>
+        <p style="position:absolute;top:737px;left:575px;white-space:nowrap" class="ft20"><b>Client&#160;Signature</b>
+        </p>
+        <div style="position:relative;left: 15%;bottom: 15%;">
+            <a class="button" href="#" role="button">
+                <span>Termination</span>
+                <div class="icon">
+                    <i class="fa fa-remove"></i>
+                    <i class="fa fa-check"></i>
+                </div>
+            </a>
+        </div>
+        <p style="position:absolute;top:1209px;left:832px;white-space:nowrap" class="ft26">2</p>
+    </div>
+
+
+
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
+    <script>
+        // ---------Responsive-navbar-active-animation-----------
+        function test() {
+            var tabsNewAnim = $('#navbarSupportedContent');
+            var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+            var activeItemNewAnim = tabsNewAnim.find('.active');
+            var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+            var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+            var itemPosNewAnimTop = activeItemNewAnim.position();
+            var itemPosNewAnimLeft = activeItemNewAnim.position();
+            $(".hori-selector").css({
+                "top": itemPosNewAnimTop.top + "px",
+                "left": itemPosNewAnimLeft.left + "px",
+                "height": activeWidthNewAnimHeight + "px",
+                "width": activeWidthNewAnimWidth + "px"
+            });
+            $("#navbarSupportedContent").on("click", "li", function (e) {
+                $('#navbarSupportedContent ul li').removeClass("active");
+                $(this).addClass('active');
+                var activeWidthNewAnimHeight = $(this).innerHeight();
+                var activeWidthNewAnimWidth = $(this).innerWidth();
+                var itemPosNewAnimTop = $(this).position();
+                var itemPosNewAnimLeft = $(this).position();
+                $(".hori-selector").css({
+                    "top": itemPosNewAnimTop.top + "px",
+                    "left": itemPosNewAnimLeft.left + "px",
+                    "height": activeWidthNewAnimHeight + "px",
+                    "width": activeWidthNewAnimWidth + "px"
+                });
+            });
+        }
+        $(document).ready(function () {
+            setTimeout(function () { test(); });
+        });
+        $(window).on('resize', function () {
+            setTimeout(function () { test(); }, 500);
+        });
+        $(".navbar-toggler").click(function () {
+            setTimeout(function () { test(); });
+        });
+    </script>
+    <script type="text/javascript"
+        src="d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_id_d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+
+</body>
+
+</html>

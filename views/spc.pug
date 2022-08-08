@@ -1,0 +1,645 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
+  style.
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    body {
+    font-family: 'Roboto', sans-serif;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    i {
+    margin-right: 10px;
+    }
+    /*----------multi-level-accordian-menu------------*/
+    .navbar-logo {
+    padding: 15px;
+    color: #fff;
+    }
+    .navbar-mainbg {
+    background-color: #b9a754;
+    padding: 0px;
+    }
+    #navbarSupportedContent {
+    overflow: hidden;
+    position: relative;
+    }
+    #navbarSupportedContent ul {
+    padding: 0px;
+    margin: 0px;
+    }
+    #navbarSupportedContent ul li a i {
+    margin-right: 10px;
+    }
+    #navbarSupportedContent li {
+    list-style-type: none;
+    float: left;
+    }
+    #navbarSupportedContent ul li a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    }
+    #navbarSupportedContent>ul>li.active>a {
+    color: #b9a754;
+    background-color: transparent;
+    transition: all 0.7s;
+    }
+    #navbarSupportedContent a:not(:only-child):after {
+    content: "\f105";
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    transition: 0.5s;
+    }
+    #navbarSupportedContent .active>a:not(:only-child):after {
+    transform: rotate(90deg);
+    }
+    .hori-selector {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 10px;
+    }
+    .hori-selector .right,
+    .hori-selector .left {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    bottom: 10px;
+    }
+    .hori-selector .right {
+    right: -25px;
+    }
+    .hori-selector .left {
+    left: -25px;
+    }
+    .hori-selector .right:before,
+    .hori-selector .left:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #b9a754;
+    }
+    .hori-selector .right:before {
+    bottom: 0;
+    right: -25px;
+    }
+    .hori-selector .left:before {
+    bottom: 0;
+    left: -25px;
+    }
+    @media (max-width: 991px) {
+    #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+    }
+    .hori-selector {
+    margin-top: 0px;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    }
+    .hori-selector .left,
+    .hori-selector .right {
+    right: 10px;
+    }
+    .hori-selector .left {
+    top: -25px;
+    left: auto;
+    }
+    .hori-selector .right {
+    bottom: -25px;
+    }
+    .hori-selector .left:before {
+    left: -25px;
+    top: -25px;
+    }
+    .hori-selector .right:before {
+    bottom: -25px;
+    left: -25px;
+    }
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft10 {
+    font-size: 24px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft11 {
+    font-size: 14px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft12 {
+    font-size: 14px;
+    font-family: Times;
+    color: #ffffff;
+    }
+    .ft13 {
+    font-size: 15px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft14 {
+    font-size: 14px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft15 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft16 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft17 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #ffffff;
+    }
+    .ft18 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft20 {
+    font-size: 24px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft21 {
+    font-size: 14px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft22 {
+    font-size: 14px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft23 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft24 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft25 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft26 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style(type='text/css').
+    p {
+    margin: 0;
+    padding: 0;
+    }
+    .ft30 {
+    font-size: 24px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft31 {
+    font-size: 14px;
+    font-family: Times;
+    color: #4b5062;
+    }
+    .ft32 {
+    font-size: 15px;
+    font-family: Times;
+    color: #050a33;
+    }
+    .ft33 {
+    font-size: 12px;
+    font-family: Times;
+    color: #828282;
+    }
+    .ft34 {
+    font-size: 11px;
+    font-family: Times;
+    color: #000000;
+    }
+    .ft35 {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times;
+    color: #4b5062;
+    }
+  style.
+   html,
+   body {
+   height: 100%;
+   }
+   .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      }
+   .button {
+     min-width: 300px;
+     min-height: 60px;
+     font-family: 'Nunito', sans-serif;
+     font-size: 22px;
+     text-transform: uppercase;
+     letter-spacing: 1.3px;
+     font-weight: 700;
+     color: #313133;
+     background: #4FD1C5;
+     background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+     border: none;
+     border-radius: 1000px;
+     box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+     transition: all 0.3s ease-in-out 0s;
+     cursor: pointer;
+     outline: none;
+     position: relative;
+     padding: 10px;
+       }
+   button::before {
+      content: '';
+      border-radius: 1000px;
+      min-width: calc(300px + 12px);
+      min-height: calc(60px + 12px);
+      border: 6px solid #00FFCB;
+      box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all .3s ease-in-out 0s;
+          }
+   .button:hover,
+   .button:focus {
+     color: #313133;
+     transform: translateY(-6px);
+     }
+    button:hover::before,
+    button:focus::before {
+      opacity: 1;
+       }
+   button::after {
+     content: '';
+     width: 30px;
+     height: 30px;
+     border-radius: 100%;
+     border: 6px solid #00FFCB;
+     position: absolute;
+     z-index: -1;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     animation: ring 1.5s infinite;
+      }
+   button:hover::after,
+   button:focus::after {
+     animation: none;
+     display: none;
+     }
+   @keyframes ring {
+   0% {
+     width: 30px;
+     height: 30px;
+     opacity: 1;
+     }
+   100% {
+     width: 300px;
+     height: 300px;
+     opacity: 0;
+    }
+    }      
+nav.navbar.navbar-expand-lg.navbar-mainbg
+  a.navbar-brand.navbar-logo(href='#') BlockCenter
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    i.fas.fa-bars.text-white
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      .hori-selector
+        .left
+        .right
+      li.nav-item
+        a.nav-link(href='home')
+          i.fas.fa-tachometer-alt
+            svg.bi.bi-file-person(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z')
+              path(fill-rule='evenodd' d='M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+          | Identification
+      li.nav-item
+        a.nav-link(href='id')
+          i.far.fa-address-book
+            svg.bi.bi-cash(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z')
+              path(d='M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z')
+          | Money
+      li.nav-item
+        a.nav-link(href='estate')
+          i.far.fa-clone
+            svg.bi.bi-house-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+              path(fill-rule='evenodd' d='M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z')
+          | Real Estates
+      li.nav-item.active
+        a.nav-link(href='contract')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Contracts
+      li.nav-item
+        a.nav-link(href='government')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Governmental services      
+      li.nav-item
+        a.nav-link(href='car')
+          i.fa.fa-car
+          | My Car
+mixin content(sellername,buyername,selleraddress,buyeraddress,sellercoowner,buyercoowner,propretyid,releasedate,purchasevalue,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address)  
+ #page1-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4mRAXnHBcKtYtW3hOMmJ5VeTDsWxPEwxhAjmZg2a98qcjrSKcfXWRsa_rk0y6JaFMocM_ZHd9y6ryuQ4XM0l7VtuyyN4KMFTjTGdXZuidIue9WrvvOXKYnUUh4x28mLcxDN_9RWM6kVLazqogdW79tTujwU4Iq4xi0oq43pShokMjbZwVK_QI1z4pXFdbQ5WwW?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft10(style='position:absolute;top:69px;left:129px;white-space:nowrap')
+    b Purchase&nbsp;Agreement&nbsp;Template
+  p.ft11(style='position:absolute;top:173px;left:615px;white-space:nowrap')=releasedate
+    
+  p.ft17(style='position:absolute;top:236px;left:64px;white-space:nowrap')
+    b=releasedate
+      
+      br
+      | parties:
+  p.ft13(style='position:absolute;top:311px;left:58px;white-space:nowrap')
+    b Seller Name
+  p.ft14(style='position:absolute;top:338px;left:58px;white-space:nowrap')=sellername
+  p.ft13(style='position:absolute;top:311px;left:452px;white-space:nowrap')
+    b Name&nbsp;of&nbsp;Buyer
+  p.ft14(style='position:absolute;top:338px;left:452px;white-space:nowrap')=buyername
+  p.ft13(style='position:absolute;top:374px;left:452px;white-space:nowrap')
+    b Buyer&nbsp;Co-owner
+  p.ft14(style='position:absolute;top:401px;left:452px;white-space:nowrap')=buyercoowner
+  p.ft13(style='position:absolute;top:380px;left:58px;white-space:nowrap')
+    b Seller&nbsp;Co-owner
+  p.ft14(style='position:absolute;top:407px;left:58px;white-space:nowrap')=sellercoowner
+  p.ft13(style='position:absolute;top:437px;left:452px;white-space:nowrap')
+    b Address&nbsp;of&nbsp;Buyer
+  p.ft18(style='position:absolute;top:464px;left:452px;white-space:nowrap')=buyeraddress
+    
+    br
+    |
+  
+  p.ft13(style='position:absolute;top:442px;left:58px;white-space:nowrap')
+    b Address&nbsp;of&nbsp;Seller
+  p.ft18(style='position:absolute;top:470px;left:58px;white-space:nowrap')=selleraddress
+   
+
+                      
+             
+            
+         
+  p.ft13(style='position:absolute;top:744px;left:58px;white-space:nowrap')
+    b Selling&nbsp;Price
+  p.ft14(style='position:absolute;top:771px;left:58px;white-space:nowrap')=purchasevalue
+  p.ft13(style='position:absolute;top:807px;left:58px;white-space:nowrap')
+    b Date&nbsp;of&nbsp;Transfer&nbsp;of&nbsp;Property&nbsp;Ownership
+  p.ft14(style='position:absolute;top:834px;left:58px;white-space:nowrap')=releasedate
+  
+    
+
+   
+  p.ft16(style='position:absolute;top:1223px;left:832px;white-space:nowrap') 1
+ #page2-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4mrXscb6V9cWG8HZcjqC_sm-5qgcF5LTvWjBfb6nwwhLR9WbNAtZfXtD9UN0Ag8_0J_2Q5gp4G6nDhKq-7kcwHOVowfmgg4GtOBoh7NO29Jls5LTLh02E9axUvJeBaHibaqKPy4KGuhAzI5iCwQrqY27XEJ5dPR_JuBsUPbahmcfcaM5aOY7BI2waRsxvu9kby?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft20(style='position:absolute;top:42px;left:129px;white-space:nowrap')
+    b Purchase&nbsp;Agreement&nbsp;Template
+  p.ft21(style='position:absolute;top:163px;left:58px;white-space:nowrap')
+    | The&nbsp;Parties&nbsp;agree&nbsp;to&nbsp;as&nbsp;follows:
+  p.ft21(style='position:absolute;top:203px;left:58px;white-space:nowrap')
+    | 1.&nbsp;Sale&nbsp;of&nbsp;Property.
+  p.ft25(style='position:absolute;top:244px;left:58px;white-space:nowrap')
+    | For&nbsp;good&nbsp;value&nbsp;and&nbsp;consideration,&nbsp;the&nbsp;Seller&nbsp;agrees&nbsp;to&nbsp;sell,&nbsp;and&nbsp;the&nbsp;Buyer&nbsp;agrees&nbsp;to&nbsp;buy&nbsp;the&nbsp;subject&nbsp;
+    br
+    | property&nbsp;described&nbsp;herein.
+  p.ft21(style='position:absolute;top:304px;left:58px;white-space:nowrap') 2.&nbsp;Taxes.
+  p.ft25(style='position:absolute;top:345px;left:58px;white-space:nowrap')
+    | The&nbsp;Buyer&nbsp;shall&nbsp;be&nbsp;responsible&nbsp;for&nbsp;&nbsp;ling&nbsp;all&nbsp;required&nbsp;sales&nbsp;and&nbsp;use&nbsp;tax&nbsp;returns&nbsp;in&nbsp;connection&nbsp;with&nbsp;the&nbsp;
+    br
+    | transfer&nbsp;of&nbsp;the&nbsp;Property.&nbsp;Buyer&nbsp;will&nbsp;also&nbsp;pay&nbsp;all&nbsp;required&nbsp;sales&nbsp;and&nbsp;use&nbsp;taxes&nbsp;and&nbsp;other&nbsp;transfer&nbsp;costs&nbsp;
+    br
+    | and&nbsp;expense&nbsp;which&nbsp;may&nbsp;arise&nbsp;resulting&nbsp;from&nbsp;the&nbsp;transfer&nbsp;of&nbsp;the&nbsp;Property.&nbsp;Seller&nbsp;will&nbsp;pay&nbsp;all&nbsp;personal&nbsp;
+    br
+    | property&nbsp;taxes&nbsp;associated&nbsp;with&nbsp;ownership&nbsp;of&nbsp;the&nbsp;Property&nbsp;and&nbsp;accrued&nbsp;for&nbsp;the&nbsp;period&nbsp;ending&nbsp;on&nbsp;the&nbsp;
+    br
+    | Effective&nbsp;Date&nbsp;and&nbsp;buyer&nbsp;wil&nbsp;pay&nbsp;all&nbsp;such&nbsp;personal&nbsp;property&nbsp;taxes&nbsp;that&nbsp;accrue&nbsp;thereafter.
+  p.ft21(style='position:absolute;top:466px;left:58px;white-space:nowrap') 3.&nbsp;Delivery.
+  p.ft25(style='position:absolute;top:507px;left:58px;white-space:nowrap')
+    | Buyer&nbsp;will&nbsp;be&nbsp;entitled&nbsp;to&nbsp;take&nbsp;possession&nbsp;of&nbsp;the&nbsp;Property&nbsp;on&nbsp;&nbsp;Thursday,&nbsp;February&nbsp;7,&nbsp;1991&nbsp;.&nbsp;If&nbsp;delivery&nbsp;is&nbsp;to&nbsp;
+    br
+    | be&nbsp;made&nbsp;at&nbsp;a&nbsp;date&nbsp;after&nbsp;the&nbsp;Effectivity&nbsp;date,&nbsp;the&nbsp;Seller&nbsp;shall&nbsp;ensure&nbsp;that&nbsp;the&nbsp;property&nbsp;is&nbsp;delivered&nbsp;in&nbsp;the&nbsp;
+    br
+    | same&nbsp;condition&nbsp;as&nbsp;when&nbsp;last&nbsp;inspected&nbsp;by&nbsp;Buyer.
+  p.ft21(style='position:absolute;top:588px;left:58px;white-space:nowrap')
+    | 4.&nbsp;Seller&apos;s&nbsp;Representations.
+  p.ft25(style='position:absolute;top:628px;left:58px;white-space:nowrap')
+    | The&nbsp;Seller&nbsp;represents&nbsp;and&nbsp;warants&nbsp;that&nbsp;he&nbsp;has&nbsp;good&nbsp;and&nbsp;marketable&nbsp;title&nbsp;to&nbsp;the&nbsp;Property&nbsp;and&nbsp;full&nbsp;
+    br
+    | authority&nbsp;to&nbsp;sell&nbsp;the&nbsp;Property.&nbsp;Seller&nbsp;also&nbsp;represents&nbsp;that&nbsp;the&nbsp;Property&nbsp;is&nbsp;free&nbsp;from&nbsp;any&nbsp;lien&nbsp;or&nbsp;
+    br
+    | encumbrance.&nbsp;Seller&nbsp;makes&nbsp;no&nbsp;other&nbsp;representations&nbsp;or&nbsp;warranties&nbsp;concerning&nbsp;the&nbsp;Property,&nbsp;which&nbsp;is&nbsp;
+    br
+    | being&nbsp;sold&nbsp;and&nbsp;assigned&nbsp;&quot;as&nbsp;is,&quot;&nbsp;and&nbsp;without&nbsp;any&nbsp;warrant&nbsp;of&nbsp;merchantability&nbsp;or&nbsp;&nbsp;tness&nbsp;for&nbsp;a&nbsp;particular&nbsp;
+    br
+    | purpose.&nbsp;Seller&nbsp;expressly&nbsp;disclaims&nbsp;any&nbsp;representations&nbsp;or&nbsp;warranties&nbsp;as&nbsp;to&nbsp;the&nbsp;value,&nbsp;condition,&nbsp;or&nbsp;
+    br
+    | functionality&nbsp;of&nbsp;the&nbsp;Property&nbsp;or&nbsp;its&nbsp;suitability&nbsp;for&nbsp;any&nbsp;particular&nbsp;purpose&nbsp;and&nbsp;buyer&nbsp;will&nbsp;have&nbsp;no&nbsp;recourse&nbsp;
+    br
+    | against&nbsp;Seller&nbsp;for&nbsp;the&nbsp;Property.
+  p.ft21(style='position:absolute;top:790px;left:58px;white-space:nowrap')
+    | 5.&nbsp;Governing&nbsp;Law.
+  p.ft26(style='position:absolute;top:831px;left:58px;white-space:nowrap')
+    | This&nbsp;Agreement&nbsp;shall&nbsp;be&nbsp;govered&nbsp;by&nbsp;and&nbsp;construed&nbsp;in&nbsp;accordance&nbsp;with&nbsp;the&nbsp;laws&nbsp;of&nbsp;the&nbsp;State&nbsp;of&nbsp;
+    b
+      | New&nbsp;
+      br
+      | York
+    | ,&nbsp;without&nbsp;giving&nbsp;effect&nbsp;to&nbsp;the&nbsp;con&nbsp;ict&nbsp;of&nbsp;laws&nbsp;principles&nbsp;thereof.
+  p.ft21(style='position:absolute;top:891px;left:58px;white-space:nowrap') 6.&nbsp;Disputes.
+  p.ft25(style='position:absolute;top:932px;left:58px;white-space:nowrap')
+    | Any&nbsp;dispute&nbsp;arising&nbsp;from&nbsp;this&nbsp;Agreement&nbsp;shall&nbsp;be&nbsp;resolve&nbsp;through&nbsp;mediation.&nbsp;If&nbsp;the&nbsp;dispute&nbsp;cannot&nbsp;be&nbsp;
+    br
+    | resolved&nbsp;through&nbsp;mediation,&nbsp;then&nbsp;the&nbsp;dispute&nbsp;will&nbsp;be&nbsp;resolved&nbsp;through&nbsp;binding&nbsp;arbitration&nbsp;conducted&nbsp;in&nbsp;
+    br
+    | accordance&nbsp;with&nbsp;the&nbsp;rules&nbsp;of&nbsp;the&nbsp;American&nbsp;Arbitration&nbsp;Association.
+  p.ft21(style='position:absolute;top:1013px;left:58px;white-space:nowrap')
+    | 7.&nbsp;Counterparts.
+  p.ft25(style='position:absolute;top:1053px;left:58px;white-space:nowrap')
+    | This&nbsp;Agreement&nbsp;may&nbsp;be&nbsp;executed&nbsp;in&nbsp;one&nbsp;or&nbsp;more&nbsp;counterparts&nbsp;each&nbsp;of&nbsp;which&nbsp;shall&nbsp;be&nbsp;deemed&nbsp;an&nbsp;
+    br
+    | original&nbsp;and&nbsp;all&nbsp;of&nbsp;which&nbsp;together&nbsp;shall&nbsp;constitute&nbsp;one&nbsp;and&nbsp;the&nbsp;same&nbsp;document.
+  p.ft23(style='position:absolute;top:1220px;left:52px;white-space:nowrap')
+    a(href='https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203233327781048&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer') Create&nbsp;your&nbsp;own&nbsp;automated&nbsp;PDFs&nbsp;with&nbsp;JotForm&nbsp;PDF&nbsp;Editor
+  p.ft24(style='position:absolute;top:1223px;left:832px;white-space:nowrap') 2
+ #page3-div(style='position:relative;left: 15%;width:892px;height:1262px;')
+  img(src='https://bl3302files.storage.live.com/y4mlGyuFpiEWYbVHu2KWf3uhXMsdSMCfOdRpH9MS7vMpljlyCoZdmrVTCuxKVriAvzZ2SMlgKZOxpujts-whKpb49zfqRsoNxlygDfvpxmyMNSOdnBnJZrWm7zQnIKKqDbWgZ71WXw2qtbpkQQFbF6QqSOQvMJ6JoeVx10pi2kYgcl9gha7XSliPafcM52-FaN-?width=892&height=1263&cropmode=none' width='892' height='1263')
+  p.ft30(style='position:absolute;top:42px;left:129px;white-space:nowrap')
+    b Purchase&nbsp;Agreement&nbsp;Template
+  p.ft31(style='position:absolute;top:163px;left:58px;white-space:nowrap') &nbsp;
+  p.ft31(style='position:absolute;top:203px;left:58px;white-space:nowrap')
+    | 8.&nbsp;Miscellaneous.
+  p.ft35(style='position:absolute;top:244px;left:58px;white-space:nowrap')
+    | This&nbsp;Agreement&nbsp;shall&nbsp;be&nbsp;binding&nbsp;upon&nbsp;the&nbsp;Parties&nbsp;and&nbsp;their&nbsp;respective&nbsp;heirs,&nbsp;successors,&nbsp;and&nbsp;assigns.&nbsp;
+    br
+    | The&nbsp;provisions&nbsp;of&nbsp;this&nbsp;Agreement&nbsp;are&nbsp;severable.&nbsp;If&nbsp;any&nbsp;provision&nbsp;is&nbsp;held&nbsp;to&nbsp;be&nbsp;invalid&nbsp;or&nbsp;unenforceable,&nbsp;
+    br
+    | it&nbsp;shall&nbsp;not&nbsp;affect&nbsp;the&nbsp;validity&nbsp;or&nbsp;enforceability&nbsp;of&nbsp;any&nbsp;other&nbsp;provision.&nbsp;The&nbsp;section&nbsp;headings&nbsp;are&nbsp;for&nbsp;
+    br
+    | reference&nbsp;purposes&nbsp;only&nbsp;and&nbsp;shall&nbsp;not&nbsp;otherwise&nbsp;affect&nbsp;the&nbsp;meaning,&nbsp;construction,&nbsp;or&nbsp;interpretation&nbsp;of&nbsp;
+    br
+    | ay&nbsp;provision&nbsp;of&nbsp;this&nbsp;Agreement.&nbsp;This&nbsp;agreement&nbsp;constitutes&nbsp;the&nbsp;entire&nbsp;agreement&nbsp;between&nbsp;the&nbsp;Parties&nbsp;
+    br
+    | and&nbsp;supersedes&nbsp;any&nbsp;and&nbsp;all&nbsp;prior&nbsp;oral&nbsp;or&nbsp;written&nbsp;agreements&nbsp;or&nbsp;understandings&nbsp;between&nbsp;the&nbsp;Parties&nbsp;
+    br
+    | concerning&nbsp;the&nbsp;subject&nbsp;matter&nbsp;of&nbsp;this&nbsp;Agreement.
+  p.ft35(style='position:absolute;top:401px;left:58px;white-space:nowrap')
+    | IN&nbsp;WITNESS&nbsp;WHEREOF,&nbsp;the&nbsp;parties&nbsp;hereto&nbsp;have&nbsp;executed&nbsp;this&nbsp;Agreement&nbsp;on&nbsp;
+    br
+    | ____________________________.
+  p.ft32(style='position:absolute;top:457px;left:58px;white-space:nowrap')
+    b Seller
+  p.ft32(style='position:absolute;top:457px;left:517px;white-space:nowrap')
+    b Buyer
+  p.ft31(style='position:absolute;top:597px;left:517px;white-space:nowrap') Dorey&nbsp;Fresson
+  p.ft31(style='position:absolute;top:599px;left:58px;white-space:nowrap') Dorey&nbsp;Fresson
+  p.ft33(style='position:absolute;top:1220px;left:52px;white-space:nowrap')
+    a(href='https://www.jotform.com/products/pdf-editor/?utm_source=pdf_file&utm_medium=referral&utm_term=203233327781048&utm_content=jotform_text&utm_campaign=pdf_file_branding_footer') Create&nbsp;your&nbsp;own&nbsp;automated&nbsp;PDFs&nbsp;with&nbsp;JotForm&nbsp;PDF&nbsp;Editor
+  p.ft34(style='position:absolute;top:1223px;left:832px;white-space:nowrap') 3 
+
+mixin button
+  .wrap
+   form(action='/salepurchase' method='GET')
+     button.button(type='submit') Create Contract
+ 
+-var i = 0                    
+while i<SParr.length 
+   - var x = i++
+   - var sp= SParr[x]
+  
+   -var sellername=sp.sellername ;
+   -var buyername=sp.buyername ;
+   -var selleraddress=sp.addressseller ;
+   -var buyeraddress=sp.addressbuyer ;
+   -var sellercoowner=sp.sellercoowner ;
+   -var buyercoowner=sp.buyercoowner ;
+   -var propretyid= sp.propretyId;
+   -var releasedate= sp.releaseDate;
+   -var purchasevalue=sp.purchaseValue ;
+  
+           
+   +content(sellername,buyername,selleraddress,buyeraddress,sellercoowner,buyercoowner,propretyid,releasedate,purchasevalue,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address)
+-var length = SParr.length
+case length
+    when 0
+      +button
+                           
+
+// Option 1: jQuery and Bootstrap Bundle (includes Popper)
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js' integrity='sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s' crossorigin='anonymous')
+script(src='//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js')
+script.
+  // ---------Responsive-navbar-active-animation-----------
+  function test() {
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click", "li", function (e) {
+  $('#navbarSupportedContent ul li').removeClass("active");
+  $(this).addClass('active');
+  var activeWidthNewAnimHeight = $(this).innerHeight();
+  var activeWidthNewAnimWidth = $(this).innerWidth();
+  var itemPosNewAnimTop = $(this).position();
+  var itemPosNewAnimLeft = $(this).position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  });
+  }
+  $(document).ready(function () {
+  setTimeout(function () { test(); });
+  });
+  $(window).on('resize', function () {
+  setTimeout(function () { test(); }, 500);
+  });
+  $(".navbar-toggler").click(function () {
+  setTimeout(function () { test(); });
+  });
+script(type='text/javascript' src='d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_id_d4f8ca3e-269d-11eb-8b25-0cc47a792c0a_files/wz_jsgraphics.js')

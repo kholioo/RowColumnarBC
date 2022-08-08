@@ -1,0 +1,686 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css' integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS' crossorigin='anonymous')
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
+  style.
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    body {
+    font-family: 'Roboto', sans-serif;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    i {
+    margin-right: 10px;
+    }
+    /*----------multi-level-accordian-menu------------*/
+    .navbar-logo {
+    padding: 15px;
+    color: #fff;
+    }
+    .navbar-mainbg {
+    background-color: #b9a754;
+    padding: 0px;
+    }
+    #navbarSupportedContent {
+    overflow: hidden;
+    position: relative;
+    }
+    #navbarSupportedContent ul {
+    padding: 0px;
+    margin: 0px;
+    }
+    #navbarSupportedContent ul li a i {
+    margin-right: 10px;
+    }
+    #navbarSupportedContent li {
+    list-style-type: none;
+    float: left;
+    }
+    #navbarSupportedContent ul li a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    }
+    #navbarSupportedContent>ul>li.active>a {
+    color: #b9a754;
+    background-color: transparent;
+    transition: all 0.7s;
+    }
+    #navbarSupportedContent a:not(:only-child):after {
+    content: "\f105";
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    transition: 0.5s;
+    }
+    #navbarSupportedContent .active>a:not(:only-child):after {
+    transform: rotate(90deg);
+    }
+    .hori-selector {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 10px;
+    }
+    .hori-selector .right,
+    .hori-selector .left {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    bottom: 10px;
+    }
+    .hori-selector .right {
+    right: -25px;
+    }
+    .hori-selector .left {
+    left: -25px;
+    }
+    .hori-selector .right:before,
+    .hori-selector .left:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #b9a754;
+    }
+    .hori-selector .right:before {
+    bottom: 0;
+    right: -25px;
+    }
+    .hori-selector .left:before {
+    bottom: 0;
+    left: -25px;
+    }
+    @media (max-width: 991px) {
+    #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+    }
+    .hori-selector {
+    margin-top: 0px;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    }
+    .hori-selector .left,
+    .hori-selector .right {
+    right: 10px;
+    }
+    .hori-selector .left {
+    top: -25px;
+    left: auto;
+    }
+    .hori-selector .right {
+    bottom: -25px;
+    }
+    .hori-selector .left:before {
+    left: -25px;
+    top: -25px;
+    }
+    .hori-selector .right:before {
+    bottom: -25px;
+    left: -25px;
+    }
+    }
+  style.
+    .estate .primary-image {
+    border: 1px solid #e0eded;
+    padding: 5px;
+    }
+    .estate .thumbnail-images {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    }
+    .estate .thumbnail-images a {
+    display: table-cell;
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #e0eded;
+    border-top: 0;
+    }
+    .estate .thumbnail-images a img {
+    width: 100%;
+    }
+    .estate .product-info h3 {
+    font-weight: 500;
+    font-size: 18px;
+    }
+    .product-info h3 {
+    margin-bottom: 10px;
+    }
+    .wp-block.property.list {
+    border: 1px solid #e0eded;
+    }
+    .wp-block {
+    margin: 0 0 15px 0;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    cursor: default;
+    border-radius: 2px;
+    }
+    .no-border {
+    border: 0 !important;
+    }
+    .wp-block.property.list .wp-block-content .content-title {
+    font-size: 20px;
+    color: #3498db;
+    margin-bottom: 5px;
+    }
+    .wp-block.property.list .wp-block-content .description {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0eded;
+    }
+    .mb-15 {
+    margin-bottom: 15px;
+    }
+    .wp-block.property.list .wp-block-content .price {
+    font-size: 22px;
+    color: #9cd70e;
+    font-weight: 600;
+    }
+    .wp-block.property.list .wp-block-content .period {
+    margin-left: 5px;
+    color: #999;
+    }
+    .wp-block.property.list .wp-block-content .capacity {
+    font-size: 16px;
+    color: #999;
+    }
+    .mt-15 {
+    margin-top: 15px;
+    }
+    .wp-block.property.list .wp-block-footer.style2 ul.aux-info {
+    display: table;
+    width: 100%;
+    border: 1px solid #e0eded;
+    }
+    .wp-block.property.list .wp-block-footer ul.aux-info {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: #fcfcfc;
+    border-top: 1px solid #e0eded;
+    }
+    .wp-block.property.list .wp-block-footer.style2 ul.aux-info li {
+    padding: 10px 10px;
+    font-size: 11px;
+    text-align: center;
+    }
+    .wp-block.property.list .wp-block-footer ul.aux-info li {
+    display: table-cell;
+    padding: 10px 15px;
+    vertical-align: middle;
+    border-right: 1px solid #e0eded;
+    }
+    .wp-block.property.list .wp-block-footer.style2 ul.aux-info li i {
+    display: block;
+    }
+    .wp-block.property.list .wp-block-footer ul.aux-info li i {
+    font-size: 18px;
+    margin-right: 8px;
+    color: #333;
+    }
+    .rating span.star {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    float: left;
+    padding: 0 1px;
+    cursor: pointer;
+    }
+    p {
+    line-height: 22px;
+    margin-bottom: 10px;
+    }
+    ol,
+    ul {
+    list-style: none;
+    }
+    .tabs-framed {
+    border: 1px solid #e0eded;
+    }
+    .tabs li a {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 12px 25px;
+    margin: 0 -1px;
+    border-bottom: 3px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+    .boxed {
+    background: #fff;
+    border: 1px solid #e0eded;
+    position: relative;
+    }
+    .tabs {
+    border-bottom: 1px solid #e0eded;
+    }
+    .tabs li {
+    float: left;
+    border-right: 1px solid #e0eded;
+    margin-bottom: -1px;
+    }
+    .tab-body {
+    padding: 15px;
+    }
+    .map-container-3 {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    }
+    .map-container-3 iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    }
+nav.navbar.navbar-expand-lg.navbar-mainbg
+  a.navbar-brand.navbar-logo(href='#') BlockCenter
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    i.fas.fa-bars.text-white
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      .hori-selector
+        .left
+        .right
+      li.nav-item
+        a.nav-link(href='home')
+          i.fas.fa-tachometer-alt
+            svg.bi.bi-file-person(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z')
+              path(fill-rule='evenodd' d='M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+          | Identification
+      li.nav-item
+        a.nav-link(href='id')
+          i.far.fa-address-book
+            svg.bi.bi-cash(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z')
+              path(d='M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z')
+          | Money
+      li.nav-item.active
+        a.nav-link(href='estate')
+          i.far.fa-clone
+            svg.bi.bi-house-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+              path(fill-rule='evenodd' d='M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z')
+          | Real Estates
+      li.nav-item
+        a.nav-link(href='contract')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Contracts
+      li.nav-item
+        a.nav-link(href='government')
+          i.far.fa-calendar-alt
+            svg.bi.bi-file-text(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' d='M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z')
+              path(fill-rule='evenodd' d='M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z')
+          | Governmental services      
+
+      li.nav-item
+        a.nav-link(href='car')
+          i.fa.fa-car
+          | My Car
+mixin content(img0,img1,img2,img3,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address,releasedate,ownerid,tenant,googleaddress,price)
+ .estate
+  .container.bootstrap.snippets.bootdey
+    .row
+      .col-md-12
+        .row
+          .col-md-12
+            .product-gallery
+              
+              .thumbnail-images
+                a.theater(href='#' rel='group' hidefocus='true')
+                  img(src=img1 alt='')
+                a.theater(href='#' rel='group' hidefocus='true')
+                  img(src=img2 alt='')
+                a.theater(href='#' rel='group' hidefocus='true')
+                  img(src=img3 alt='')
+          .col-md-12
+            .product-info
+              h3=address
+              .wp-block.property.list.no-border
+                .wp-block-content.clearfix
+                  span.pull-right
+                    span.capacity
+                      i.fa.fa-user
+                      i.fa.fa-user
+                .wp-block-footer.style2.mt-15
+                  ul.aux-info
+                    li
+                      
+                      i.fa.fa-building
+                      |  Sq Feet
+                      i=propretysize
+                    li
+                      
+                      i.fa.fa-user
+                      |   Bedrooms
+                      i=rooms
+                    li
+                      i.fa.fa-tint
+                      |   Bathrooms
+                      i=bathrooms
+                    li
+                      
+                      i.fa.fa-car
+                      |   Garages
+                      i=garages
+              span.clearfix
+        // PROPERTY DESCRIPTION
+        .row
+          .col-md-12
+            .tabs-framed.boxed
+              ul.tabs.clearfix
+                li.active
+                  a(href='#tab-1' data-toggle='tab') Additional details
+                li.active
+                  a(href='#tab-map' data-toggle='tab' data-type='gmap') Map
+              .tab-content
+                #tab-1.tab-pane.fade.in.active
+                  .tab-body
+                    .section-title-wr
+                      h3.section-title.left Property description
+                    .section-title-wr
+                    table.table.table-bordered.table-striped.table-hover.table-responsive
+                      tbody
+                        tr
+                          td
+                            strong proprety size
+                            p=propretysize                             
+                            |   Sq Ft
+                          td
+                            strong Lot size:
+                            p=lotsize
+                            |   Sq Ft
+                          td
+                            strong Price:
+                            p=price
+                            |  $
+                        tr
+                          td
+                            strong Rooms:
+                            p=rooms
+                            |  
+                          td
+                            strong Bedrooms:
+                            p=rooms
+                            | 
+                          td
+                            strong Bathrooms:
+                            p=bathrooms
+                            |  
+                        tr
+                          td
+                            strong Garages:
+                            p=garages
+                            |  
+                          td
+                            strong Roofing:
+                            |  New
+                          td
+                            strong Structure Type:
+                            p=structuretype
+                            |  
+                        tr
+                          td
+                            strong Year built:
+                            p=yearbuilt
+                            |  
+                          td
+                            strong Available from:
+                            p=availablefrom
+                            |  
+                          td
+                    .section-title-wr
+                      .container
+                        .row
+                          .col
+                            form(action='/salepurchase' method='GET')
+                              button.btn.btn-warning(type='submit')
+                                | create
+                                | sale purchase
+                                | Contract
+                          div
+                            form(action='/rent' method='GET')
+                              button.btn.btn-success(type='submit')
+                                | create
+                                | rent Contract
+                    table.table.table-bordered.table-striped.table-hover.table-responsive
+                #tab-map.tab-pane.fade.in.active
+                  .tab-body
+                    // Google map
+                    #map-container-google-3.z-depth-1-half.map-container-3
+                      iframe(src=googleaddress frameborder='0' style='border:0' allowfullscreen='')
+                    #mapCanvas.map-canvas.no-margin(style='position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);')
+                      .gm-style(style='position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;')
+                        div(style='position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;')
+                          div(style='position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;')
+                              div(style='position: absolute; left: 0px; top: 0px; z-index: 0;')
+                                div(aria-hidden='true' style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;')
+                                  div(style='width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -257px; top: -133px;')
+                                  div(style='width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -1px; top: -133px;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;')
+                              div(style='position: absolute; left: 0px; top: 0px; z-index: -1;')
+                                div(aria-hidden='true' style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;')
+                                  div(style='width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -257px; top: -133px;')
+                                  div(style='width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -1px; top: -133px;')
+                              div(style='width: 22px; height: 40px; overflow: hidden; position: absolute; left: -11px; top: -40px; z-index: 0; -webkit-animation-duration: 500ms; -webkit-animation-iteration-count: 1; -webkit-animation-name: _gm3451;')
+                                img(src='https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png' draggable='false' style='position: absolute; left: 0px; top: 0px; width: 22px; height: 40px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                            div(style='position: absolute; z-index: 0; transform: translateZ(0px); left: 0px; top: 0px;')
+                              div(style='overflow: hidden;')
+                            div(style='position: absolute; left: 0px; top: 0px; z-index: 0;')
+                              div(aria-hidden='true' style='position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;')
+                                div(style='width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -257px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;')
+                                  img(src='https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i12!2i2344!3i1482!2m3!1e0!2sm!3i299000000!3m9!2ses-ES!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0' draggable='false' style='width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                                div(style='width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -1px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;')
+                                  img(src='https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i12!2i2345!3i1482!2m3!1e0!2sm!3i299000000!3m9!2ses-ES!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0' draggable='false' style='width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                          div(style='position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;')
+                          div(style='position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;')
+                              .gmnoprint(style='width: 22px; height: 40px; overflow: hidden; position: absolute; opacity: 0.01; left: -11px; top: -40px; z-index: 0;')
+                                img(src='https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png' draggable='false' usemap='#gmimap0' style='position: absolute; left: 0px; top: 0px; width: 22px; height: 40px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                                map#gmimap0(name='gmimap0')
+                                  area(href='javascript:void(0)' log='miw' coords='8,0,5,1,4,2,3,3,2,4,2,5,1,6,1,7,0,8,0,14,1,15,1,16,2,17,2,18,3,19,3,20,4,21,5,22,5,23,6,24,7,25,7,27,8,28,8,29,9,30,9,33,10,34,10,40,11,40,11,34,12,33,12,30,13,29,13,28,14,27,14,25,15,24,16,23,16,22,17,21,18,20,18,19,19,18,19,17,20,16,20,15,21,14,21,8,20,7,20,6,19,5,19,4,18,3,17,2,16,1,14,1,13,0,8,0' shape='poly' title='Hello World!' style='cursor: pointer;')
+                            div(style='transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;')
+                        div(style='margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;')
+                          a(target='_blank' href='https://maps.google.com/maps?ll=44.4325,26.1039&z=12&t=m&hl=es-ES&gl=US&mapclient=apiv3' title='Haz clic aquí para visualizar esta zona en Google Maps' style='position: static; overflow: visible; float: none; display: inline;')
+                            div(style='width: 62px; height: 26px; cursor: pointer;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png' draggable='false' style='position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                        .gmnoprint(style='z-index: 1000001; position: absolute; right: 0px; bottom: 0px; width: 12px;')
+                          .gm-style-cc(draggable='false' style='-webkit-user-select: none;')
+                            div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+                              div(style='width: 1px;')
+                              div(style='width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);')
+                            div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;')
+                              a(style='color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;')
+                                | Datos
+                                | de mapas
+                              span(style='display: none;')
+                        div(style='padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 0px; height: 0px; position: absolute; left: 5px; top: 5px; background-color: white;')
+                          div(style='padding: 0px 0px 10px; font-size: 16px;')
+                            | Datos de
+                            | mapas
+                          div(style='font-size: 13px;')
+                          div(style='width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;')
+                            img(src='https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png' draggable='false' style='position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                        .gmnoscreen(style='position: absolute; right: 0px; bottom: 0px;')
+                          div(style='font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);')
+                        .gmnoprint.gm-style-cc(draggable='false' style='z-index: 1000001; position: absolute; -webkit-user-select: none; right: 0px; bottom: 0px;')
+                          div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+                            div(style='width: 1px;')
+                            div(style='width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);')
+                          div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;')
+                            a(href='https://www.google.com/intl/es-ES_US/help/terms_maps.html' target='_blank' style='text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);')
+                              | T&eacute;rminos
+                              | de uso
+                        .gm-style-cc(draggable='false' style='-webkit-user-select: none; display: none; position: absolute; right: 0px; bottom: 0px;')
+                          div(style='opacity: 0.7; width: 100%; height: 100%; position: absolute;')
+                            div(style='width: 1px;')
+                            div(style='width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);')
+                          div(style='position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;')
+                            a(target='_new' title='Informar a Google acerca de errores en las imágenes o en el mapa de carreteras' href='https://www.google.com/maps/@44.4325,26.1039,12z/data=!10m1!1e1!12b1?source=apiv3&rapsrc=apiv3' style='font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;')
+                              | Informar
+                              | de un error de Maps
+                        .gmnoprint(draggable='false' controlwidth='32' controlheight='84' style='margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;')
+                          div(controlwidth='32' controlheight='40' style='cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; position: absolute; left: 0px; top: 0px;')
+                            div(aria-label='Control del hombrecito naranja de Street View' style='width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png' draggable='false' style='position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                            div(aria-label='Se ha inhabilitado el hombrecito naranja.' style='width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png' draggable='false' style='position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                            div(aria-label='El hombrecito naranja está en la parte superior del mapa.' style='width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png' draggable='false' style='position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                            div(aria-label='Control del hombrecito naranja de Street View' style='width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png' draggable='false' style='position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                          .gmnoprint(controlwidth='0' controlheight='0' style='opacity: 0.6; display: none; position: absolute;')
+                            div(title='Girar el mapa 90 grados' style='width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png' draggable='false' style='position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                          .gmnoprint(controlwidth='20' controlheight='39' style='position: absolute; left: 6px; top: 45px;')
+                            div(style='width: 20px; height: 39px; overflow: hidden; position: absolute;')
+                              img(src='https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png' draggable='false' style='position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;')
+                            div(title='Acerca la imagen' style='position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;')
+                            div(title='Aleja la imagen' style='position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;')
+                        .gmnoprint.gm-style-mtc(style='margin: 5px; z-index: 0; position: absolute; cursor: pointer; text-align: left; width: 85px; right: 0px; top: 0px;')
+                          div(draggable='false' title='Cambiar estilo de mapa' style='direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 1px 6px; border-radius: 2px; -webkit-background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; font-weight: 500; background-color: rgb(255, 255, 255); background-clip: padding-box;')
+                            | Mapa
+                            img(src='https://maps.gstatic.com/mapfiles/arrow-down.png' draggable='false' style='-webkit-user-select: none; border: 0px; padding: 0px; margin: -2px 0px 0px; position: absolute; right: 6px; top: 50%; width: 7px; height: 4px;')
+                          div(style='z-index: -1; padding-top: 2px; -webkit-background-clip: padding-box; border-width: 0px 1px 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); border-left-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; position: relative; text-align: left; display: none; background-color: white; background-clip: padding-box;')
+                            div(draggable='false' title='Muestra el callejero' style='color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; font-weight: 500; background-color: rgb(255, 255, 255);')
+                              | Mapa
+                            div(draggable='false' title='Muestra las imágenes de satélite' style='color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; background-color: rgb(255, 255, 255);')
+                              | Sat&eacute;lite
+                            div(style='margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235);')
+                            div(draggable='false' title='Muestra el callejero con relieve' style='color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; background-color: rgb(255, 255, 255);')
+                              span(role='checkbox' style='box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);')
+                                div(style='position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;')
+                                  img(src='https://maps.gstatic.com/mapfiles/mv/imgs8.png' draggable='false' style='position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;')
+                              label(style='vertical-align: middle; cursor: pointer;') Relieve
+                            div(style='margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235); display: none;')
+                            div(draggable='false' title='Acerca la imagen para mostrar la vista de 45 grados.' style='color: rgb(184, 184, 184); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);')
+                              span(role='checkbox' style='box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);')
+                                div(style='position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;')
+                                  img(src='https://maps.gstatic.com/mapfiles/mv/imgs8.png' draggable='false' style='position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;')
+                              label(style='vertical-align: middle; cursor: pointer;') 45&deg;
+                            div(draggable='false' title='Muestra las imágenes con los nombres de las calles' style='color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);')
+                              span(role='checkbox' style='box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);')
+                                div(style='position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;')
+                                  img(src='https://maps.gstatic.com/mapfiles/mv/imgs8.png' draggable='false' style='position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;')
+                              label(style='vertical-align: middle; cursor: pointer;') Etiquetas
+                            
+
+-var i = 0                    
+while i<estatearray.length 
+   - var x = i++
+   - var e= estatearray[x]
+   - var img0  =e.img0 ;
+   - var img1  =e.img1 ;
+   - var img2 =e.img2 ;
+   - var img3 =e.img3 ;
+   - var propretysize =e.propretysize ;
+   - var lotsize =e.lotsize ;
+   - var rooms =e.rooms ;
+   - var garages =e.garages ;
+   - var yearbuilt =e.yearbuilt ;
+   - var availblefrom =e.availblefrom ;
+   - var bathrooms = e.bathrooms;
+   - var structuretype =e.structuretype ;
+   - var address =e.address ;
+   - var  releasedate=e.REreleaseDate ;
+   - var ownerid =e.ownerid ;
+   - var  tenant=e.tenant ;
+   - var googleaddress =e.gaddress ;
+   - var price =price ;
+   +content(img0,img1,img2,img3,propretysize,lotsize,rooms,garages,yearbuilt,availblefrom,bathrooms,structuretype,address,releasedate,ownerid,tenant,googleaddress,price) 
+   
+   
+                                
+
+// Optional JavaScript
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js' integrity='sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' integrity='sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k' crossorigin='anonymous')
+script.
+  // ---------Responsive-navbar-active-animation-----------
+  function test() {
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click", "li", function (e) {
+  $('#navbarSupportedContent ul li').removeClass("active");
+  $(this).addClass('active');
+  var activeWidthNewAnimHeight = $(this).innerHeight();
+  var activeWidthNewAnimWidth = $(this).innerWidth();
+  var itemPosNewAnimTop = $(this).position();
+  var itemPosNewAnimLeft = $(this).position();
+  $(".hori-selector").css({
+  "top": itemPosNewAnimTop.top + "px",
+  "left": itemPosNewAnimLeft.left + "px",
+  "height": activeWidthNewAnimHeight + "px",
+  "width": activeWidthNewAnimWidth + "px"
+  });
+  });
+  }
+  $(document).ready(function () {
+  setTimeout(function () { test(); });
+  });
+  $(window).on('resize', function () {
+  setTimeout(function () { test(); }, 500);
+  });
+  $(".navbar-toggler").click(function () {
+  setTimeout(function () { test(); });
+  });

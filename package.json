@@ -1,0 +1,36 @@
+{
+  "name": "block-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch views -o css",
+    "node-1": "nodemon --watch dev -e js dev/networkNode.js 3002 http://localhost:3002 1",
+    "node-2": "nodemon --watch dev -e js dev/networkNode.js 3003 http://localhost:3003 2",
+    "node-3": "nodemon --watch dev -e js dev/networkNode.js 3004 http://localhost:3004 3",
+    "node-4": "nodemon --watch dev -e js dev/networkNode.js 3005 http://localhost:3005 4",
+    "node-5": "nodemon --watch dev -e js dev/networkNode.js 3006 http://localhost:3006 5"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ci": "^1.0.0",
+    "cryptico": "^1.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.17.1",
+    "js-crypto-rsa": "^1.0.0",
+    "node-cron": "^2.0.3",
+    "node-localstorage": "^2.1.6",
+    "node-rsa": "^1.1.1",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.19",
+    "pug": "^3.0.2",
+    "react-scripts": "^3.4.3",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "sha256": "^0.2.0",
+    "uuid": "^8.3.0"
+  }
+}
